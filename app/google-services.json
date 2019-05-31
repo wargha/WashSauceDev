@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "941444411805",
+    "firebase_url": "https://washsaucedev.firebaseio.com",
+    "project_id": "washsaucedev",
+    "storage_bucket": "washsaucedev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941444411805:android:a74bb19e824160ac",
+        "android_client_info": {
+          "package_name": "com.example.washsauce_dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941444411805-e1hvseng6ckg8mqeaihi3a8kn14jducj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.washsauce_dev",
+            "certificate_hash": "406686f6318efcb787fac4cab25bdacb2a6bfc42"
+          }
+        },
+        {
+          "client_id": "941444411805-rh8t4elg0k3jcgg0lc6gvfjivs2osh2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpzg7CfsqR8N2-tTJYMrke84gbZjLHzX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941444411805-rh8t4elg0k3jcgg0lc6gvfjivs2osh2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

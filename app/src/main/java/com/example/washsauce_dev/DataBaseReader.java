@@ -18,8 +18,6 @@ public class DataBaseReader extends Activity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
                         Log.d(TAG, "It worked!");
-
-
                     } else {
 //                      Toast.makeText(, "Error", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Error adding document");

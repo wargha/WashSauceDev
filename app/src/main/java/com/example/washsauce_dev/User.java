@@ -11,6 +11,7 @@ public class User {
     private int servicesRequested;
     private int servicesDone;
     private Date birthday;
+    private String Nakai;
 
     public User(String name, String location, String email, String phone, Boolean admin, int servicesRequested, int servicesDone, Date birthday) {
         this.name = name;

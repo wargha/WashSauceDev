@@ -8,40 +8,44 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-<EditText
-    android:id="@+id/userName"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to WashSauce Inc.!"
+        android:textSize="22dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please, sign in with your email and password"
+        android:textSize="22dp"
+        android:textAlignment="center"/>
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User ID / Email"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Name"
-    android:inputType="text"
-    />
-    <EditText
-        android:id="@+id/location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="location"
-        android:inputType="text"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="save"
-        android:onClick="saveTask"
-        />
+    android:onClick="saveTask"
+    android:text="Login " />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <ScrollView
-        android:layout_width="102dp"
-        android:layout_height="522dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        android:onClick="startLoginActivity"
+        android:text="SignUp " />
 </LinearLayout>

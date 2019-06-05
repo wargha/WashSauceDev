@@ -17,10 +17,10 @@ public class DataBaseReader extends Activity {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
-                        Log.w(TAG, "It worked!");
+                        Log.d(TAG, "It worked!");
                     } else {
 //                      Toast.makeText(, "Error", Toast.LENGTH_SHORT).show();
-                        Log.w(TAG, "Error adding document");
+                        Log.d(TAG, "Error adding document");
                     }
                 }
             })
@@ -31,6 +31,4 @@ public class DataBaseReader extends Activity {
                 }
             });
     }
-
-    String type;
 }

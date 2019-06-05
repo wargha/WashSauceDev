@@ -33,6 +33,4 @@ public class DataBaseWriter {
                         }
                     });
     }
-
-    String type;
 }

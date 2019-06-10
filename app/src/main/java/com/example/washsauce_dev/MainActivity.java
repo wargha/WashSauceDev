@@ -1,13 +1,12 @@
 package com.example.washsauce_dev;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
         Map<String, Object> user = new HashMap<>();
         user.put(KEY_NAME, name);
         user.put(KEY_LOCATION, location);
-        DataBaseWriter writeUser = new DataBaseWriter();
+        DataBaseWriter writeUser = new DataBaseWriter(this);
         writeUser.addNewUser(user);
         makeText(this, "Added Successfully!", LENGTH_SHORT).show();
-        DataBaseReader d = new DataBaseReader();
+        DataBaseReader d = new DataBaseReader(this);
         d.readUser("EdjgkfBAKLZvVHPZY2bp");
     }
 
-    public void startLoginActivity(View view) {
+    public void startSignUpActivity (View view) {
+        Intent i = new Intent(this, SignUpActivity.class);
+        startActivity(i);
     }
 }

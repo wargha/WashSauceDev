@@ -1,5 +1,6 @@
 package com.example.washsauce_dev;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -12,7 +13,10 @@ import java.util.Map;
 public class DataBaseWriter {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    Activity activity;
+    public DataBaseWriter(Activity activity) {
+        this.activity = activity;
+    }
     public void addNewUser(Map<String, Object> data) {
             db.collection("users")
                     .add(data)

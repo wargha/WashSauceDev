@@ -10,7 +10,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class DataBaseReader extends Activity {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    Activity activity;
+    public DataBaseReader(Activity activity) {
+        this.activity = activity;
+    }
     public void readUser(String id) {
     db.collection("users").document(id).get()
             .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

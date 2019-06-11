@@ -10,10 +10,8 @@ import java.util.Map;
 import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
     private static final String KEY_NAME = "name";
-    private static final String KEY_LOCATION = "location";
-
+    private static final String KEY_PASSWORD = "password";
     private EditText editName;
     private EditText editPw;
 
@@ -25,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
     }
-    public void saveTask(View v) {
+    public void authenticateUser(View v) {
         String name = editName.getText().toString();
-        String location = editPw.getText().toString();
+        String pw = editPw.getText().toString();
         Map<String, Object> user = new HashMap<>();
         user.put(KEY_NAME, name);
-        user.put(KEY_LOCATION, location);
+        user.put(KEY_PASSWORD, pw);
         DataBaseWriter writeUser = new DataBaseWriter(this);
         writeUser.addNewUser(user);
         makeText(this, "Added Successfully!", LENGTH_SHORT).show();

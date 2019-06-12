@@ -1,6 +1,7 @@
 package com.example.washsauce_dev;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +15,22 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_PASSWORD = "password";
     private EditText editName;
     private EditText editPw;
-
+    private static int SPLASH_TIME_OUT = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent = new Intent(MainActivity.this, IntroActivity.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        },SPLASH_TIME_OUT);
+
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
     }

@@ -35,7 +35,7 @@ public class Authenticator extends Activity{
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(activity, "Authentication Success!.",
+                            Toast.makeText(activity, "Authentication made with Success!",
                                     Toast.LENGTH_SHORT).show();
                             System.out.println(user);
                         } else {

@@ -12,13 +12,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        try{
-            Thread.sleep(3000);
-            Intent i = new Intent(this, IntroActivity.class );
-            startActivity(i);
-        }catch(InterruptedException e){
-            e.printStackTrace();
-        }
     }
 }

@@ -27,8 +27,8 @@ public class IntroActivity extends AppCompatActivity {
         editPw = findViewById(R.id.password);
     }
     public void authenticateUser(View v) {
-//        String name = editName.getText().toString();
-//        String pw = editPw.getText().toString();
+        String email = editName.getText().toString();
+        String password = editPw.getText().toString();
 //        Map<String, Object> user = new HashMap<>();
 //        user.put(KEY_NAME, name);
 //        user.put(KEY_PASSWORD, pw);
@@ -37,8 +37,10 @@ public class IntroActivity extends AppCompatActivity {
 //        makeText(this, "Added Successfully!", LENGTH_SHORT).show();
 //        DataBaseReader d = new DataBaseReader(this);
 //        d.readUser("EdjgkfBAKLZvVHPZY2bp");
+        Authenticator a = new Authenticator(this, email, password);
         Intent i = new Intent(this, UserHomeActivity.class);
         startActivity(i);
+
     }
 
     public void startSignUpActivity (View view) {

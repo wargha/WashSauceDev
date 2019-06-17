@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import static android.content.ContentValues.TAG;
 
-public class Authenticator extends Activity{
+public class Authenticator {
     Activity activity;
     private FirebaseAuth mAuth;
     String email;
@@ -28,7 +28,7 @@ public class Authenticator extends Activity{
 
     private void trySignIn() {
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {

@@ -40,7 +40,6 @@ public class IntroActivity extends AppCompatActivity {
         Authenticator a = new Authenticator(this, email, password);
         Intent i = new Intent(this, UserHomeActivity.class);
         startActivity(i);
-
     }
 
     public void startSignUpActivity (View view) {

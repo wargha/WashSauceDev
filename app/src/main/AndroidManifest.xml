@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RequestTaskActivity"></activity>
+        <activity android:name=".Service"></activity>
+        <activity android:name=".Status" />
+        <activity android:name=".Confirmed" />
+        <activity android:name=".Confirmation" />
+        <activity android:name=".History" />
+        <activity android:name=".RequestTaskActivity" />
         <activity android:name=".UserHomeActivity" />
         <activity android:name=".IntroActivity" />
         <activity android:name=".MainActivity">

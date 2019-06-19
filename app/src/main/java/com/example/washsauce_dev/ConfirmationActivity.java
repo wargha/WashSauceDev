@@ -3,7 +3,7 @@ package com.example.washsauce_dev;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Confirmation extends AppCompatActivity {
+public class ConfirmationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ServiceActivity"></activity>
+        <activity android:name=".WasherHomeActivity"></activity>
+        <activity android:name=".ServiceActivity" />
         <activity android:name=".Status" />
         <activity android:name=".ConfirmedActivity" />
         <activity android:name=".ConfirmationActivity" />

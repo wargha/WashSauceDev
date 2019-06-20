@@ -8,12 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static android.widget.Toast.LENGTH_SHORT;
-import static android.widget.Toast.makeText;
-
 public class IntroActivity extends AppCompatActivity {
     private static final String KEY_NAME = "name";
     private static final String KEY_PASSWORD = "password";

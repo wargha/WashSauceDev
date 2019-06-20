@@ -44,7 +44,7 @@ public class IntroActivity extends AppCompatActivity {
 //        user.put(KEY_NAME, name);
 //        user.put(KEY_PASSWORD, pw);
 //        DataBaseWriter writeUser = new DataBaseWriter(this);
-//        writeUser.addNewUser(user);
+//        writeUser.addNewUser(user);g
 //        makeText(this, "Added Successfully!", LENGTH_SHORT).show();
 //        DataBaseReader d = new DataBaseReader(this);
 //        d.readUser("EdjgkfBAKLZvVHPZY2bp");
@@ -55,6 +55,11 @@ public class IntroActivity extends AppCompatActivity {
 
     public void startSignUpActivity (View view) {
         Intent i = new Intent(this, SignUpActivity.class);
+        startActivity(i);
+    }
+
+    public void  startWasherHome(View view) {
+        Intent i = new Intent(this, WasherHomeActivity.class);
         startActivity(i);
     }
 }

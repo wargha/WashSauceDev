@@ -38,13 +38,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Id (Do we really need Id?)" />
-    </android.support.design.widget.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout14"
@@ -64,7 +58,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="First, Last Name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -102,10 +96,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/phone"
+            android:id="@+id/pw"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone" />
+            android:hint="Password" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -159,6 +154,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Submit"
+        android:onClick="trySignUp"
         android:textColor="#ffffff"
         android:background="@drawable/custom_buttons"
         app:layout_constraintBottom_toBottomOf="parent"

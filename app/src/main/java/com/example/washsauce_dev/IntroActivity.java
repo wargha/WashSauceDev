@@ -20,21 +20,21 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
-        sharedPref = getSharedPreferences("authPref", Context.MODE_PRIVATE);
-        Boolean isAuthenticated = sharedPref.getBoolean("authRef", true);
-        if (isAuthenticated) {
-            Intent i = new Intent(this, UserHomeActivity.class);
-            startActivity(i);
-        }
+//        sharedPref = getSharedPreferences("authPref", Context.MODE_PRIVATE);
+//        Boolean isAuthenticated = sharedPref.getBoolean("authRef", true);
+//        if (isAuthenticated) {
+//            Intent i = new Intent(this, UserHomeActivity.class);
+//            startActivity(i);
+//        }
     }
 
     protected void onStop() {
         // call the superclass method first
         super.onStop();
 
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean("authRef", true);
-        editor.commit();
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putBoolean("authRef", true);
+//        editor.commit();
     }
 
     public void authenticateUser(View v) {

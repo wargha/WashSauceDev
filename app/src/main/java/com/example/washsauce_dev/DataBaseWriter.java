@@ -14,6 +14,7 @@ public class DataBaseWriter {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Activity activity;
+    User user;
     public DataBaseWriter(Activity activity) {
         this.activity = activity;
     }

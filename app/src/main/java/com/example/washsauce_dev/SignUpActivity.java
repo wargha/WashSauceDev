@@ -14,16 +14,25 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email;
     private EditText pw;
+    //private EditText phone;
+    private EditText location;
+    private EditText name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         email = findViewById(R.id.email);
         pw = findViewById(R.id.pw);
+//        phone = findViewById(R.id.phone);
+        location = findViewById(R.id.location);
+        name = findViewById(R.id.name);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -36,25 +45,39 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     public void trySignUp(View view) {
+        Toast.makeText(SignUpActivity.this, "Starting to create user",
+                Toast.LENGTH_SHORT).show();
         String emailDB = email.getText().toString();
         String passwordDB = pw.getText().toString();
+//        String phoneDB = phone.getText().toString();
+        String locationDB = location.getText().toString();
+        String nameDB = name.getText().toString();
+//        User u = new User(nameDB, locationDB, emailDB);
+        final Map<String, Object> newUser = new HashMap<>();
+        newUser.put("name", nameDB);
+        newUser.put("location", locationDB);
+        newUser.put("email", emailDB);
+        final DataBaseWriter writeUser = new DataBaseWriter(this);
         mAuth.createUserWithEmailAndPassword(emailDB, passwordDB)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("SignUpActivity", "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+//                            Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(SignUpActivity.this, "It worked!",
+                                    Toast.LENGTH_SHORT).show();
+                            writeUser.addNewUser(newUser);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("SignUpActivity", "createUserWithEmail:failure", task.getException());
+//                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+
                         }
 
                         // ...
                     }
-                });
+                } );
     }
 }

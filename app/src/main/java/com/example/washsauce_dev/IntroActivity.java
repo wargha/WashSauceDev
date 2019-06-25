@@ -44,7 +44,7 @@ public class IntroActivity extends AppCompatActivity {
 //        user.put(KEY_NAME, name);
 //        user.put(KEY_PASSWORD, pw);
 //        DataBaseWriter writeUser = new DataBaseWriter(this);
-//        writeUser.addNewUser(user);g
+//        writeUser.addNewUser(user);
 //        makeText(this, "Added Successfully!", LENGTH_SHORT).show();
 //        DataBaseReader d = new DataBaseReader(this);
 //        d.readUser("EdjgkfBAKLZvVHPZY2bp");

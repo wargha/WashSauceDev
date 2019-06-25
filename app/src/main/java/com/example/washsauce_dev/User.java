@@ -12,16 +12,13 @@ public class User {
     private int servicesDone;
     private Date birthday;
 
-    public User(String name, String location, String email, String phone, Boolean admin, int servicesRequested, int servicesDone, Date birthday) {
+    public User(String name, String location, String email) {
         this.name = name;
         this.location = location;
         this.email = email;
-        this.phone = phone;
-        this.admin = admin;
-        this.servicesRequested = servicesRequested;
-        this.servicesDone = servicesDone;
-        this.birthday = birthday;
-    }
+        this.servicesRequested = 0;
+        this.servicesDone = 0;
+  }
 
     public User() {
         this.name = "";
@@ -33,4 +30,5 @@ public class User {
         this.servicesDone = 0;
         this.birthday = null;
     }
+
 }

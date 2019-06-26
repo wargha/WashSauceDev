@@ -1,6 +1,7 @@
 package com.example.washsauce_dev;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -38,10 +39,12 @@ public class Authenticator {
                             Toast.makeText(activity, "Authentication made with Success!",
                                     Toast.LENGTH_SHORT).show();
                             System.out.println(user);
+                            Intent i = new Intent(activity, UserHomeActivity.class);
+                            activity.startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(activity, "Authentication failed.",
+                            Toast.makeText(activity, "Authentication failed. Try again!",
                                     Toast.LENGTH_SHORT).show();
                             System.out.println("failed");
                         }

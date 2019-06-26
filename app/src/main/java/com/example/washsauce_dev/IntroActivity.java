@@ -49,8 +49,7 @@ public class IntroActivity extends AppCompatActivity {
 //        DataBaseReader d = new DataBaseReader(this);
 //        d.readUser("EdjgkfBAKLZvVHPZY2bp");
         Authenticator a = new Authenticator(this, email, password);
-        Intent i = new Intent(this, UserHomeActivity.class);
-        startActivity(i);
+
     }
 
     public void startSignUpActivity (View view) {

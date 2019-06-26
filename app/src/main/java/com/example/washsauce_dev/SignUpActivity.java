@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
-
     public void trySignUp(View view) {
         Toast.makeText(SignUpActivity.this, "Starting to create user",
                 Toast.LENGTH_SHORT).show();

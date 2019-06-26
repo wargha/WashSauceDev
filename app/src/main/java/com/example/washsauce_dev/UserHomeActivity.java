@@ -11,6 +11,9 @@ public class UserHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
+        //TextView currentTicketMessage = (TextView) findViewById (R.id.currentTicketMessage);
+        //currentTicketMessage.set()
     }
 
     public void goToRequest(View view) {

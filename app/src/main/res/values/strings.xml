@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WashSauce-Dev</string>
+    <string name="currentTicketMessage">Current Ticket view : No ticket yet</string>
+    <string name="statusOnTicket">Status: </string>
+    <string name="loadOnTicket">Loads to be done: </string>
+    <string name="typeOnTicket">Type of laundry: </string>
+    <string name="conditionOnTicket">Condition of laundry: </string>
+    <string name="WasherOnTicket">Name of Washer: </string>
+
 </resources>
+

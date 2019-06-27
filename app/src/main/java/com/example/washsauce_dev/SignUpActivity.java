@@ -21,7 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email;
     private EditText pw;
-    //private EditText phone;
+    private EditText phone;
     private EditText location;
     private EditText name;
     @Override
@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         email = findViewById(R.id.email);
         pw = findViewById(R.id.pw);
-//        phone = findViewById(R.id.phone);
+        phone = findViewById(R.id.phone);
         location = findViewById(R.id.location);
         name = findViewById(R.id.name);
         mAuth = FirebaseAuth.getInstance();
@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
         String emailDB = email.getText().toString();
         String passwordDB = pw.getText().toString();
-//        String phoneDB = phone.getText().toString();
+        String phoneDB = phone.getText().toString();
         String locationDB = location.getText().toString();
         String nameDB = name.getText().toString();
 //        User u = new User(nameDB, locationDB, emailDB);

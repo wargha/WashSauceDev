@@ -9,114 +9,109 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginLeft="51dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginBottom="78dp"
+        android:layout_width="133dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/custom_buttons"
         android:onClick="goToRequest"
         android:text="Request a wash"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WasherOnTicket" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
-        android:layout_marginBottom="78dp"
+        android:layout_width="133dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
         android:background="@drawable/custom_buttons"
         android:text="History"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessageCustomerHomepage" />
+        app:layout_constraintTop_toBottomOf="@+id/WasherOnTicket" />
 
     <TextView
         android:id="@+id/welcomeMessageCustomerHomepage"
         android:layout_width="282dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginBottom="427dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:text="@string/welcomeMessageCustomerHomepage"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/currentTicketMessage"
         android:layout_width="282dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/currentTicketMessage"
-        app:layout_constraintBottom_toTopOf="@+id/statusOnTicket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeMessageCustomerHomepage" />
 
     <TextView
         android:id="@+id/statusOnTicket"
         android:layout_width="282dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/statusOnTicket"
-        app:layout_constraintBottom_toTopOf="@+id/loadOnTicket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentTicketMessage" />
 
     <TextView
         android:id="@+id/loadOnTicket"
         android:layout_width="282dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/loadOnTicket"
-        app:layout_constraintBottom_toTopOf="@+id/typeOnTicket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statusOnTicket" />
 
     <TextView
         android:id="@+id/typeOnTicket"
         android:layout_width="282dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/typeOnTicket"
-        app:layout_constraintBottom_toTopOf="@+id/conditionOnTicket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loadOnTicket" />
 
     <TextView
         android:id="@+id/conditionOnTicket"
         android:layout_width="282dp"
-        android:layout_height="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/conditionOnTicket"
-        app:layout_constraintBottom_toTopOf="@+id/WasherOnTicket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/typeOnTicket" />
 
     <TextView
         android:id="@+id/WasherOnTicket"
         android:layout_width="282dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="43dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
         android:text="@string/WasherOnTicket"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conditionOnTicket" />
 

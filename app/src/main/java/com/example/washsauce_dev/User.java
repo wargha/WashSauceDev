@@ -3,7 +3,7 @@ package com.example.washsauce_dev;
 import java.util.Date;
 
 public class User {
-    private String name;
+    public String name;
     private String location;
     private String email;
     private String phone;
@@ -24,11 +24,11 @@ public class User {
         this.name = "";
         this.location = "";
         this.email = "";
-        this.phone = "";
-        this.admin = null;
-        this.servicesRequested = 0;
-        this.servicesDone = 0;
-        this.birthday = null;
+//        this.phone = "";
+//        this.admin = null;
+//        this.servicesRequested = 0;
+//        this.servicesDone = 0;
+//        this.birthday = null;
     }
 
 }

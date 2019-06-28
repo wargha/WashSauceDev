@@ -1,5 +1,6 @@
 package com.example.washsauce_dev;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,6 +68,8 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "It worked!",
                                     Toast.LENGTH_SHORT).show();
                             writeUser.addNewUser(newUser);
+                            goToSignIn();
+
                         } else {
                             // If sign in fails, display a message to the user.
 //                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -78,5 +81,10 @@ public class SignUpActivity extends AppCompatActivity {
                         // ...
                     }
                 } );
+    }
+
+    public void goToSignIn() {
+        Intent i = new Intent(this, IntroActivity.class);
+        startActivity(i);
     }
 }

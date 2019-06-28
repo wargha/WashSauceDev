@@ -11,108 +11,126 @@
         android:id="@+id/button2"
         android:layout_width="133dp"
         android:layout_height="66dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="208dp"
         android:background="@drawable/custom_buttons"
         android:onClick="goToRequest"
         android:text="Request a wash"
         android:textColor="#ffffff"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WasherOnTicket" />
+        app:layout_constraintTop_toBottomOf="@+id/currentTicketMessage" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="133dp"
         android:layout_height="66dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="208dp"
         android:background="@drawable/custom_buttons"
         android:text="History"
         android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WasherOnTicket" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentTicketMessage" />
 
     <TextView
         android:id="@+id/welcomeMessageCustomerHomepage"
-        android:layout_width="282dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/welcomeMessageCustomerHomepage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/currentTicketMessage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/currentTicketMessage"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="356dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="60dp"
         android:text="@string/currentTicketMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessageCustomerHomepage" />
+        app:layout_constraintStart_toStartOf="@+id/welcomeMessageCustomerHomepage"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/statusOnTicket"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/statusOnTicket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentTicketMessage" />
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status:" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/statusOnTicket"
+                android:text="@string/statusOnTicket" />
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Loads of laundry:" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/loadOnTicket"
+                android:text="@string/loadOnTicket" />
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Type of laundry:" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/typeOnTicket"
+                android:text="@string/typeOnTicket" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/loadOnTicket"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/loadOnTicket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statusOnTicket" />
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Condition of laundry:" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/conditionOnTicket"
+                android:text="@string/conditionOnTicket" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/typeOnTicket"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/typeOnTicket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loadOnTicket" />
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Washer name:" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/WasherOnTicket"
+                android:text="@string/WasherOnTicket" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/conditionOnTicket"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/conditionOnTicket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/typeOnTicket" />
-
-    <TextView
-        android:id="@+id/WasherOnTicket"
-        android:layout_width="282dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/WasherOnTicket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conditionOnTicket" />
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>

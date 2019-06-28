@@ -2,11 +2,11 @@
     <string name="app_name">WashSauce-Dev</string>
     <string name="welcomeMessageCustomerHomepage">Welcome buddy!</string>
     <string name="currentTicketMessage">Current Ticket view : No ticket yet</string>
-    <string name="statusOnTicket">Status: </string>
-    <string name="loadOnTicket">Loads to be done: </string>
-    <string name="typeOnTicket">Type of laundry: </string>
-    <string name="conditionOnTicket">Condition of laundry: </string>
-    <string name="WasherOnTicket">Name of Washer: </string>
+    <string name="statusOnTicket">None yet</string>
+    <string name="loadOnTicket">None yet</string>
+    <string name="typeOnTicket">None yet</string>
+    <string name="conditionOnTicket">None yet</string>
+    <string name="WasherOnTicket">None yet</string>
 
 </resources>
 

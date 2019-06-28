@@ -20,9 +20,15 @@ public class DataBaseReader {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Activity activity;
-    UserHomeActivity homeActivity;
+    INotifyResults listener;
     public DataBaseReader(Activity activity) {
         this.activity = activity;
+        this.listener = null;
+    }
+
+    public DataBaseReader(Activity activity, INotifyResults listener) {
+        this.activity = activity;
+        this.listener = listener;
     }
     public void readUser(String id) {
     db.collection("users").document(id).get()
@@ -58,7 +64,12 @@ public class DataBaseReader {
                                 Toast.makeText(activity, "Found you in the database :)",
                                         Toast.LENGTH_SHORT).show();
 //                                homeActivity.notifyResult(document.toObject(User.class));
-//                                homeActivity.notifyResult(document.getData());
+                                if (listener != null) {
+                                    listener.notifyResult(document.getData());
+                                } else {
+
+                                }
+
                             }
 
                         } else {

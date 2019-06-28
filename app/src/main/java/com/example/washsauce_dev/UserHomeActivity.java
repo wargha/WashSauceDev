@@ -25,17 +25,15 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyResult
     }
 
     public void readUser() {
-        DataBaseReader d = new DataBaseReader(this);
+        DataBaseReader d = new DataBaseReader(this, this);
         d.readUserByEmail("lucaswargha@gmail.com");
     }
 
-    public Map<String, Object> notifyResult( final Map<String, Object> user) {
-        runOnUiThread(new Runnable(){
-            public void run() {
-                welcomeStr.setText("Welcome");
+    public void notifyResult(Map<String, Object> user) {
+        runOnUiThread(() -> {
+                welcomeStr.setText("Welcome " + user.get("name") + "!");
             }
-        });
+        );
 
-        return user;
     }
 }

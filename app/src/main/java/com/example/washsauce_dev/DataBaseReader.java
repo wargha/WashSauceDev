@@ -63,11 +63,12 @@ public class DataBaseReader {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 Toast.makeText(activity, "Found you in the database :)",
                                         Toast.LENGTH_SHORT).show();
-//                                homeActivity.notifyResult(document.toObject(User.class));
-                                if (listener != null) {
-                                    listener.notifyResult(document.getData());
-                                } else {
 
+                                if (listener != null) {
+                                    listener.notifyResult(document.toObject(User.class));
+                                } else {
+                                    Toast.makeText(activity, "I'm null =(",
+                                            Toast.LENGTH_LONG).show();
                                 }
 
                             }

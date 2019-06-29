@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         String phoneDB = phone.getText().toString();
         String locationDB = location.getText().toString();
         String nameDB = name.getText().toString();
-//        User u = new User(nameDB, locationDB, emailDB);
+        User u = new User(nameDB, locationDB, emailDB);
         final Map<String, Object> newUser = new HashMap<>();
         newUser.put("name", nameDB);
         newUser.put("location", locationDB);

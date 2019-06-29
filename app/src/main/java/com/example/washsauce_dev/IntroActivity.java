@@ -20,7 +20,7 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
-//        sharedPref = getSharedPreferences("authPref", Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("userEmail", Context.MODE_PRIVATE);
 //        Boolean isAuthenticated = sharedPref.getBoolean("authRef", true);
 //        if (isAuthenticated) {
 //            Intent i = new Intent(this, UserHomeActivity.class);
@@ -40,16 +40,12 @@ public class IntroActivity extends AppCompatActivity {
     public void authenticateUser(View v) {
         String email = editName.getText().toString();
         String password = editPw.getText().toString();
-//        Map<String, Object> user = new HashMap<>();
-//        user.put(KEY_NAME, name);
-//        user.put(KEY_PASSWORD, pw);
-//        DataBaseWriter writeUser = new DataBaseWriter(this);
-//        writeUser.addNewUser(user);
-//        makeText(this, "Added Successfully!", LENGTH_SHORT).show();
-//        DataBaseReader d = new DataBaseReader(this);
-//        d.readUser("EdjgkfBAKLZvVHPZY2bp");
         Authenticator a = new Authenticator(this, email, password);
+        a.trySignIn();
 
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("email", email);
+        editor.commit();
     }
 
     public void startSignUpActivity (View view) {

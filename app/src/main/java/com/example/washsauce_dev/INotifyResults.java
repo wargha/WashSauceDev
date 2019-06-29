@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface INotifyResults {
 
-      void notifyResult(Map<String, Object> user);
+      void notifyResult(User user);
 }

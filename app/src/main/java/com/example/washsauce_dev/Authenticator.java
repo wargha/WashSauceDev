@@ -1,7 +1,9 @@
 package com.example.washsauce_dev;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -24,10 +26,9 @@ public class Authenticator {
         this.activity = activity;
         this.email = email;
         this.password = password;
-        trySignIn();
     }
 
-    private void trySignIn() {
+    public void trySignIn() {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override

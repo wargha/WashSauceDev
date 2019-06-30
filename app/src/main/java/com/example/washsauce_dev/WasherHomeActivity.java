@@ -1,9 +1,14 @@
 package com.example.washsauce_dev;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
 
 public class WasherHomeActivity extends AppCompatActivity {
 
@@ -11,6 +16,29 @@ public class WasherHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_washer_home);
+
+        RadioButton b1;
+        RadioButton b2;
+        RadioButton b3;
+        RadioButton b4;
+        RadioButton b5;
+        //Button buttonConfirm;
+        //Button clear;
+
+        b1 = findViewById(R.id.radioButton11);
+        b2 = findViewById(R.id.radioButton12);
+        b3 = findViewById(R.id.radioButton13);
+        b4 = findViewById(R.id.radioButton14);
+        b5 = findViewById(R.id.radioButton15);
+        //buttonConfirm = findViewById(R.id.selectTask);
+        //clear = findViewById(R.id.clearTask);
+
+        //buttonConfirm.setEnabled(false);
+
+        /*if (b1.isChecked() || b2.isChecked() || b3.isChecked()
+        || b4.isChecked() || b5.isChecked()) {
+            buttonConfirm.setEnabled(true);
+        }*/
     }
 
     public void customerRequests(View view) {

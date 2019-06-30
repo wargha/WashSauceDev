@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,16 +29,34 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText phone;
     private EditText location;
     private EditText name;
+    private EditText birthday;
+    private Button buttonConfirm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
         email = findViewById(R.id.email);
         pw = findViewById(R.id.pw);
         phone = findViewById(R.id.phone);
         location = findViewById(R.id.location);
         name = findViewById(R.id.name);
+        birthday = findViewById(R.id.birthday);
         mAuth = FirebaseAuth.getInstance();
+        buttonConfirm = findViewById(R.id.submit);
+
+        //clearForm((ViewGroup) findViewById(R.id.clearSignUp));
+
+        name.addTextChangedListener(signUpTextWatcher);
+        email.addTextChangedListener(signUpTextWatcher);
+        pw.addTextChangedListener(signUpTextWatcher);
+        location.addTextChangedListener(signUpTextWatcher);
+        birthday.addTextChangedListener(signUpTextWatcher);
+        phone.addTextChangedListener(signUpTextWatcher);
+
+        // Submit button will not work unless all input fields have content.
+        buttonConfirm.setEnabled(false);
     }
 
     @Override
@@ -87,4 +109,43 @@ public class SignUpActivity extends AppCompatActivity {
         Intent i = new Intent(this, IntroActivity.class);
         startActivity(i);
     }
+
+    // Submit button will not work unless all input fields have content
+    private TextWatcher signUpTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String checkName = name.getText().toString().trim();
+            String checkEmail = email.getText().toString().trim();
+            String checkPassword = pw.getText().toString().trim();
+            String checkLocation = location.getText().toString().trim();
+            String checkBirthday = birthday.getText().toString().trim();
+            String checkPhone = phone.getText().toString().trim();
+
+            buttonConfirm.setEnabled(!checkName.isEmpty() && !checkEmail.isEmpty()
+                    && !checkPassword.isEmpty() && !checkLocation.isEmpty()
+                    && !checkBirthday.isEmpty() && !checkPhone.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
+    /*private void clearForm(ViewGroup group) {
+        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+            View view = group.getChildAt(i);
+            if (view instanceof EditText) {
+                ((EditText)view).setText("");
+            }
+
+            if(view instanceof ViewGroup && (((ViewGroup)view).getChildCount() > 0))
+                clearForm((ViewGroup)view);
+        }
+    }*/
 }

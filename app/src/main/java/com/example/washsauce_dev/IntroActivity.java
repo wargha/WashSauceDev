@@ -9,18 +9,16 @@ import android.view.View;
 import android.widget.EditText;
 
 public class IntroActivity extends AppCompatActivity {
-    private static final String KEY_NAME = "name";
-    private static final String KEY_PASSWORD = "password";
     private EditText editName;
     private EditText editPw;
-   private SharedPreferences sharedPref;
+//    private SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
-        sharedPref = getSharedPreferences("userEmail", Context.MODE_PRIVATE);
+//        sharedPref = getSharedPreferences("userEmail", Context.MODE_PRIVATE);
 //        Boolean isAuthenticated = sharedPref.getBoolean("authRef", true);
 //        if (isAuthenticated) {
 //            Intent i = new Intent(this, UserHomeActivity.class);
@@ -40,12 +38,11 @@ public class IntroActivity extends AppCompatActivity {
     public void authenticateUser(View v) {
         String email = editName.getText().toString();
         String password = editPw.getText().toString();
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("email", email);
+//        editor.commit();
         Authenticator a = new Authenticator(this, email, password);
         a.trySignIn();
-
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("email", email);
-        editor.commit();
     }
 
     public void startSignUpActivity (View view) {

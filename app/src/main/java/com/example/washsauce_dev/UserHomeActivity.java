@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class UserHomeActivity extends AppCompatActivity implements INotifyResults {
     private TextView welcomeStr;
-    private SharedPreferences userEmail;
+//    private SharedPreferences userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyResult
     * about it! */
     public void readUser() {
         DataBaseReader d = new DataBaseReader(this, this);
-//        String email = userEmail.getString("email", null);
+    // String email = userEmail.getString("email", null);
         d.readUserByEmail("lucaswargha@gmail.com");
     }
 

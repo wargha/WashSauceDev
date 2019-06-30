@@ -1,6 +1,8 @@
 package com.example.washsauce_dev;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText phone;
     private EditText location;
     private EditText name;
+//    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
         location = findViewById(R.id.location);
         name = findViewById(R.id.name);
         mAuth = FirebaseAuth.getInstance();
+//        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
     }
 
     @Override

@@ -16,13 +16,10 @@ import android.widget.EditText;
 public class IntroActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editPw;
-<<<<<<< HEAD
-//    private SharedPreferences sharedPref;
-=======
+
     private SharedPreferences sharedPref;
     private Button buttonConfirm;
 
->>>>>>> 08e5de2fa00e76390e9fad2a594bcd0310edd1e5
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         buttonConfirm = findViewById(R.id.submit);
 
-        //clearForm((ViewGroup) findViewById(R.id.clearSignUp));
+        //Button clearForm = findViewById(R.id.clearSignUp);
 
         name.addTextChangedListener(signUpTextWatcher);
         email.addTextChangedListener(signUpTextWatcher);
@@ -141,15 +142,18 @@ public class SignUpActivity extends AppCompatActivity {
         }
     };
 
-    /*private void clearForm(ViewGroup group) {
-        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
-            View view = group.getChildAt(i);
-            if (view instanceof EditText) {
-                ((EditText)view).setText("");
-            }
-
-            if(view instanceof ViewGroup && (((ViewGroup)view).getChildCount() > 0))
-                clearForm((ViewGroup)view);
-        }
+    /*public void clearForm() {
+        TextView myTextView13 = findViewById(R.id.textInputLayout13);
+        myTextView13.setText("");
+        TextView myTextView14 = findViewById(R.id.textInputLayout14);
+        myTextView14.setText("");
+        TextView myTextView15 = findViewById(R.id.textInputLayout15);
+        myTextView15.setText("");
+        TextView myTextView16 = findViewById(R.id.textInputLayout16);
+        myTextView16.setText("");
+        TextView myTextView17 = findViewById(R.id.textInputLayout17);
+        myTextView17.setText("");
+        TextView myTextView18 = findViewById(R.id.textInputLayout18);
+        myTextView18.setText("");
     }*/
 }

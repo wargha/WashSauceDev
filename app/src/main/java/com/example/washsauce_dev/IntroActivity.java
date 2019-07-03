@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,7 +18,6 @@ public class IntroActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editPw;
 
-    private SharedPreferences sharedPref;
     private Button buttonConfirm;
 
     @Override
@@ -26,8 +26,6 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         editName = findViewById(R.id.userName);
         editPw = findViewById(R.id.password);
-
-        sharedPref = getSharedPreferences("userEmail", Context.MODE_PRIVATE);
         buttonConfirm = findViewById(R.id.login);
 
         editName.addTextChangedListener(loginTextWatcher);
@@ -50,9 +48,10 @@ public class IntroActivity extends AppCompatActivity {
     public void authenticateUser(View v) {
         String email = editName.getText().toString();
         String password = editPw.getText().toString();
-//        SharedPreferences.Editor editor = sharedPref.edit();
-//        editor.putString("email", email);
-//        editor.commit();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("EMAIL_KEY", email);
+        editor.apply();
         Authenticator a = new Authenticator(this, email, password);
         a.trySignIn();
     }

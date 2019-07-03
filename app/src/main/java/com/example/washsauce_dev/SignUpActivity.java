@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -53,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         buttonConfirm = findViewById(R.id.submit);
         clearSignUp = findViewById(R.id.clearSignUp);
 
-        //clearForm((ViewGroup) findViewById(R.id.clearSignUp));
+        //Button clearForm = findViewById(R.id.clearSignUp);
 
         name.addTextChangedListener(signUpTextWatcher);
         email.addTextChangedListener(signUpTextWatcher);
@@ -82,35 +83,25 @@ public class SignUpActivity extends AppCompatActivity {
         String phoneDB = phone.getText().toString();
         String locationDB = location.getText().toString();
         String nameDB = name.getText().toString();
-        User u = new User(nameDB, locationDB, emailDB);
-        final Map<String, Object> newUser = new HashMap<>();
-        newUser.put("name", nameDB);
-        newUser.put("location", locationDB);
-        newUser.put("email", emailDB);
+        User u = new User(nameDB, locationDB, emailDB, phoneDB);
         final DataBaseWriter writeUser = new DataBaseWriter(this);
         mAuth.createUserWithEmailAndPassword(emailDB, passwordDB)
-                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                .addOnCompleteListener(SignUpActivity.this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
 //                            Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(SignUpActivity.this, "It worked!",
-                                    Toast.LENGTH_SHORT).show();
-                            writeUser.addNewUser(newUser);
-                            goToSignIn();
+                        Toast.makeText(SignUpActivity.this, "It worked!",
+                                Toast.LENGTH_SHORT).show();
+                        writeUser.addNewUser(u);
+                        goToSignIn();
 
-                        } else {
-                            // If sign in fails, display a message to the user.
+                    } else {
+                        // If sign in fails, display a message to the user.
 //                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        // ...
+                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
                     }
-                } );
+                });
     }
 
     public void goToSignIn() {
@@ -147,15 +138,18 @@ public class SignUpActivity extends AppCompatActivity {
      }
 }
 
-    /*private void clearForm(ViewGroup group) {
-        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
-            View view = group.getChildAt(i);
-            if (view instanceof EditText) {
-                ((EditText)view).setText("");
-            }
-
-            if(view instanceof ViewGroup && (((ViewGroup)view).getChildCount() > 0))
-                clearForm((ViewGroup)view);
-        }
+    /*public void clearForm() {
+        TextView myTextView13 = findViewById(R.id.textInputLayout13);
+        myTextView13.setText("");
+        TextView myTextView14 = findViewById(R.id.textInputLayout14);
+        myTextView14.setText("");
+        TextView myTextView15 = findViewById(R.id.textInputLayout15);
+        myTextView15.setText("");
+        TextView myTextView16 = findViewById(R.id.textInputLayout16);
+        myTextView16.setText("");
+        TextView myTextView17 = findViewById(R.id.textInputLayout17);
+        myTextView17.setText("");
+        TextView myTextView18 = findViewById(R.id.textInputLayout18);
+        myTextView18.setText("");
     }*/
 

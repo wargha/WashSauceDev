@@ -8,25 +8,29 @@ import android.widget.EditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RequestTaskActivity extends AppCompatActivity {
-    private EditText email;
-    private EditText pw;
-    private EditText phone;
+    private EditText loads;
+    private EditText contents;
+    private EditText condition;
     private EditText location;
-    private EditText name;
     private Button buttonConfirm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_task);
-        email = findViewById(R.id.email);
-        pw = findViewById(R.id.pw);
-        phone = findViewById(R.id.phone);
+
+        loads = findViewById(R.id.loadsRequest);
+        contents = findViewById(R.id.contents);
+        condition = findViewById(R.id.condition);
         location = findViewById(R.id.location);
-        name = findViewById(R.id.name);
     }
 
-    private void clickButton() {
-        String emailDB = email.getText().toString();
-//        Task t = new Task();
+    public void submitRequest() {
+        String loadsInput = loads.getText().toString();
+        String contentsInput = contents.getText().toString();
+        String conditionInput = condition.getText().toString();
+        String locationInput = location.getText().toString();
+
+        //Task t = new Task(loadsInput, contentsInput, conditionInput, locationInput);
     }
 }

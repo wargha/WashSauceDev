@@ -20,18 +20,19 @@
         android:text="Submit Request"
         android:textColor="#ffffff"
         android:textSize="10dp"
+        android:onClick="submitRequest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/loadsRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
@@ -40,7 +41,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
         android:id="@+id/button10"
@@ -73,7 +74,7 @@
         android:text="Dress"
         android:textSize="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/loadsRequest" />
 
     <TextView
         android:id="@+id/textView7"
@@ -81,15 +82,16 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="What needs washing?"
         android:textAlignment="center"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioButton
         android:id="@+id/radioButton2"
@@ -103,9 +105,9 @@
         android:text="Casual"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toEndOf="@+id/radioButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/loadsRequest" />
 
     <RadioButton
         android:id="@+id/radioButton3"
@@ -147,7 +149,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
 
     <RadioButton
-        android:id="@+id/radioButton6"
+        android:id="@+id/radioButton51"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -163,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioButton4" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView50"
         android:layout_width="326dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
@@ -183,7 +185,7 @@
         app:layout_constraintVertical_bias="0.029" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -241,7 +243,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioButton7" />
 
     <RadioButton
-        android:id="@+id/radioButton10"
+        android:id="@+id/radioButton50"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -257,7 +259,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioButton8" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

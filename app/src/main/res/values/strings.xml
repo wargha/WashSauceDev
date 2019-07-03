@@ -7,6 +7,7 @@
     <string name="typeOnTicket">None yet</string>
     <string name="conditionOnTicket">None yet</string>
     <string name="WasherOnTicket">None yet</string>
+    <string name="clearSignUp">clearSignUp</string>
 
 </resources>
 

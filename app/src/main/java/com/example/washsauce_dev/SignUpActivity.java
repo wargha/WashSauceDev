@@ -10,8 +10,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -33,9 +33,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText name;
     private EditText birthday;
     private Button buttonConfirm;
+    public Button clearSignUp;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -50,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
 //        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
 
         buttonConfirm = findViewById(R.id.submit);
+        clearSignUp = findViewById(R.id.clearSignUp);
 
         //clearForm((ViewGroup) findViewById(R.id.clearSignUp));
 
@@ -61,6 +63,8 @@ public class SignUpActivity extends AppCompatActivity {
         phone.addTextChangedListener(signUpTextWatcher);
         // Submit button will not work unless all input fields have content.
         buttonConfirm.setEnabled(false);
+
+
     }
 
     @Override
@@ -138,8 +142,10 @@ public class SignUpActivity extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable s) {
 
-        }
-    };
+        };
+
+     }
+}
 
     /*private void clearForm(ViewGroup group) {
         for (int i = 0, count = group.getChildCount(); i < count; ++i) {
@@ -152,4 +158,4 @@ public class SignUpActivity extends AppCompatActivity {
                 clearForm((ViewGroup)view);
         }
     }*/
-}
+

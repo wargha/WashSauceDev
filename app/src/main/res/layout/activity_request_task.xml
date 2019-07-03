@@ -8,7 +8,7 @@
     tools:context=".RequestTaskActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitRequest"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/quest1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/clear"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/submitRequest"
         app:layout_constraintVertical_bias="0.033" />
 
     <RadioButton
@@ -126,7 +126,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Delicates"
         android:textSize="10dp"
@@ -175,15 +175,15 @@
         android:text="What conditions are these items in?"
         android:textSize="15dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/submitRequest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/other"
         app:layout_constraintVertical_bias="0.029" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -257,7 +257,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioButton8" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/other2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -270,7 +270,7 @@
         android:hint="Explain Other"
         android:inputType="textPersonName"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/submitRequest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioButton9"

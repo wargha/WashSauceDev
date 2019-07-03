@@ -2,6 +2,7 @@ package com.example.washsauce_dev;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class UserHomeActivity extends AppCompatActivity implements INotifyResults {
     private TextView welcomeStr;
-//    private SharedPreferences userEmail;
+    private SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +33,9 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyResult
     * about it! */
     public void readUser() {
         DataBaseReader d = new DataBaseReader(this, this);
-    // String email = userEmail.getString("email", null);
-        d.readUserByEmail("lucaswargha@gmail.com");
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String email = preferences.getString("EMAIL_KEY", "defaultValue");
+        d.readUserByEmail(email);
     }
 
     /* This function is called once the database reader is successful. Once we know who the user is

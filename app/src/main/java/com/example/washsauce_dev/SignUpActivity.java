@@ -79,35 +79,25 @@ public class SignUpActivity extends AppCompatActivity {
         String phoneDB = phone.getText().toString();
         String locationDB = location.getText().toString();
         String nameDB = name.getText().toString();
-        User u = new User(nameDB, locationDB, emailDB);
-        final Map<String, Object> newUser = new HashMap<>();
-        newUser.put("name", nameDB);
-        newUser.put("location", locationDB);
-        newUser.put("email", emailDB);
+        User u = new User(nameDB, locationDB, emailDB, phoneDB);
         final DataBaseWriter writeUser = new DataBaseWriter(this);
         mAuth.createUserWithEmailAndPassword(emailDB, passwordDB)
-                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                .addOnCompleteListener(SignUpActivity.this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
 //                            Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(SignUpActivity.this, "It worked!",
-                                    Toast.LENGTH_SHORT).show();
-                            writeUser.addNewUser(newUser);
-                            goToSignIn();
+                        Toast.makeText(SignUpActivity.this, "It worked!",
+                                Toast.LENGTH_SHORT).show();
+                        writeUser.addNewUser(u);
+                        goToSignIn();
 
-                        } else {
-                            // If sign in fails, display a message to the user.
+                    } else {
+                        // If sign in fails, display a message to the user.
 //                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        // ...
+                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
                     }
-                } );
+                });
     }
 
     public void goToSignIn() {

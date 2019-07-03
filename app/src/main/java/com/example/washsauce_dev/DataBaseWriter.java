@@ -14,24 +14,22 @@ public class DataBaseWriter {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Activity activity;
-    User user;
+
     public DataBaseWriter(Activity activity) {
         this.activity = activity;
     }
-    public void addNewUser(Map<String, Object> data) {
+
+    public void addNewUser(User data) {
             db.collection("users")
                     .add(data)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.w(TAG, "Document added with success!");
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                        }
-                    });
+                    .addOnSuccessListener(documentReference -> Log.w(TAG, "Document added with success!"))
+                    .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
+    }
+
+    public void addNewTask(Task data) {
+        db.collection("tasks")
+                .add(data)
+                .addOnSuccessListener(documentReference -> Log.w(TAG, "Document added with success!"))
+                .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
     }
 }

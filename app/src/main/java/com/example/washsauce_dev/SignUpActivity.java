@@ -129,9 +129,9 @@ public class SignUpActivity extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable s) {
 
-        };
+        }
 
-     }
+     };
 }
 
     /*public void clearForm() {

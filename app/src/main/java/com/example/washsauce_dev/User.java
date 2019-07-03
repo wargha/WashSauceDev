@@ -1,7 +1,5 @@
 package com.example.washsauce_dev;
 
-import java.util.Date;
-
 public class User {
     protected String name;
     protected String location;
@@ -10,7 +8,6 @@ public class User {
     protected Boolean washer;
     protected int servicesRequested;
     protected int servicesDone;
-    protected Date birthday;
 
     public User(String name, String location, String email, String phone) {
         this.name = name;
@@ -30,7 +27,61 @@ public class User {
         this.washer = null;
         this.servicesRequested = 0;
         this.servicesDone = 0;
-        this.birthday = null;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Boolean getWasher() {
+        return washer;
+    }
+
+    public void setWasher(Boolean washer) {
+        this.washer = washer;
+    }
+
+    public int getServicesRequested() {
+        return servicesRequested;
+    }
+
+    public void setServicesRequested(int servicesRequested) {
+        this.servicesRequested = servicesRequested;
+    }
+
+    public int getServicesDone() {
+        return servicesDone;
+    }
+
+    public void setServicesDone(int servicesDone) {
+        this.servicesDone = servicesDone;
+    }
 }

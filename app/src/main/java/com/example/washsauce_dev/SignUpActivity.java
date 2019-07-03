@@ -31,7 +31,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText phone;
     private EditText location;
     private EditText name;
-    private EditText birthday;
     private Button buttonConfirm;
 
     @Override
@@ -44,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         location = findViewById(R.id.location);
         name = findViewById(R.id.name);
-        birthday = findViewById(R.id.birthday);
         mAuth = FirebaseAuth.getInstance();
 
 //        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
@@ -57,7 +55,6 @@ public class SignUpActivity extends AppCompatActivity {
         email.addTextChangedListener(signUpTextWatcher);
         pw.addTextChangedListener(signUpTextWatcher);
         location.addTextChangedListener(signUpTextWatcher);
-        birthday.addTextChangedListener(signUpTextWatcher);
         phone.addTextChangedListener(signUpTextWatcher);
         // Submit button will not work unless all input fields have content.
         buttonConfirm.setEnabled(false);
@@ -67,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
     public void trySignUp(View view) {
@@ -117,12 +114,11 @@ public class SignUpActivity extends AppCompatActivity {
             String checkEmail = email.getText().toString().trim();
             String checkPassword = pw.getText().toString().trim();
             String checkLocation = location.getText().toString().trim();
-            String checkBirthday = birthday.getText().toString().trim();
             String checkPhone = phone.getText().toString().trim();
 
             buttonConfirm.setEnabled(!checkName.isEmpty() && !checkEmail.isEmpty()
                     && !checkPassword.isEmpty() && !checkLocation.isEmpty()
-                    && !checkBirthday.isEmpty() && !checkPhone.isEmpty());
+                    &&  !checkPhone.isEmpty());
         }
 
         @Override

@@ -50,7 +50,7 @@ public class RequestTaskActivity extends AppCompatActivity {
 
     public void submitCustomerRequest(View v) {
 
-        Integer iLoads        = Integer.valueOf(loads.getText().toString());
+       Integer iLoads = Integer.parseInt(loads.getText().toString());
 
         Integer a,b,c,d,e,f,g,h,i,j,k,l;
 
@@ -78,6 +78,6 @@ public class RequestTaskActivity extends AppCompatActivity {
     }
 
     private void showToast(Integer text) {
-        Toast.makeText(RequestTaskActivity.this, text, Toast.LENGTH_SHORT).show();
+        Toast.makeText(RequestTaskActivity.this, text.toString(), Toast.LENGTH_SHORT).show();
     }
 }

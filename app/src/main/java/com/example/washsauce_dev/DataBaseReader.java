@@ -1,5 +1,7 @@
 package com.example.washsauce_dev;
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -65,6 +67,12 @@ public class DataBaseReader {
                                         Toast.LENGTH_SHORT).show();
 
                                 if (listener != null) {
+//                                    Toast.makeText(activity, document.getId(),
+//                                            Toast.LENGTH_LONG).show();
+                                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putString("USER_ID_KEY", document.getId());
+                                    editor.apply();
                                     listener.notifyResult(document.toObject(User.class));
                                 } else {
                                     Toast.makeText(activity, "I'm null =(",

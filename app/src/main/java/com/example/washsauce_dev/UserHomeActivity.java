@@ -2,12 +2,14 @@ package com.example.washsauce_dev;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Map;
 
@@ -43,5 +45,8 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyResult
     public void notifyResult(User user) {
         runOnUiThread(() -> welcomeStr.setText("Welcome " + user.name + "!")
         );
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        Toast.makeText(this, preferences.getString("USER_ID_KEY", "didnt work") , Toast.LENGTH_LONG).show();
+//        ;
     }
 }

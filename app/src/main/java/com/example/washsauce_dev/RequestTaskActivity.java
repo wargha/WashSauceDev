@@ -1,5 +1,7 @@
 package com.example.washsauce_dev;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +28,7 @@ public class RequestTaskActivity extends AppCompatActivity {
     private CheckBox kDarkColors;
     private CheckBox kDelicate;
     private CheckBox kBeddingTowel;
-
+    private String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,8 @@ public class RequestTaskActivity extends AppCompatActivity {
         kDarkColors   = findViewById(R.id.checkBox13);
         kDelicate     = findViewById(R.id.checkBox14);
         kBeddingTowel = findViewById(R.id.checkBox15);
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        userID = preferences.getString("USER_ID_KEY", "");
     }
 
     public void submitCustomerRequest(View v) {

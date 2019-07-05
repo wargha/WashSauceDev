@@ -10,21 +10,27 @@ public class Task {
     protected String requestorEmail;
     protected int numberOfLoads;
     protected String condition;
+    protected String size;
     protected String loadType;
     protected float price;
 
-    public Task(Date requestDate, Date acceptDate, Date finishDate, String comments, String status, Boolean isFinished, String requestorEmail, int numberOfLoads, String condition, String loadType, float price) {
+    public Task(Date requestDate, String comments, String size, String requestorEmail, int numberOfLoads, String condition, String loadType) {
         this.requestDate = requestDate;
-        this.acceptDate = acceptDate;
-        this.finishDate = finishDate;
+        this.acceptDate = null;
+        this.finishDate = null;
         this.comments = comments;
-        this.status = status;
-        this.isFinished = isFinished;
+        this.status = "Requested";
+        this.isFinished = false;
         this.requestorEmail = requestorEmail;
         this.numberOfLoads = numberOfLoads;
         this.condition = condition;
         this.loadType = loadType;
-        this.price = price;
+        this.size = size;
+        this.price = calculatePrice();
+    }
+
+    private float calculatePrice() {
+        return (float) 0;
     }
 
     public Date getRequestDate() {

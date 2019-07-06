@@ -45,8 +45,5 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyResult
     public void notifyResult(User user) {
         runOnUiThread(() -> welcomeStr.setText("Welcome " + user.name + "!")
         );
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        Toast.makeText(this, preferences.getString("USER_ID_KEY", "didnt work") , Toast.LENGTH_LONG).show();
-//        ;
     }
 }

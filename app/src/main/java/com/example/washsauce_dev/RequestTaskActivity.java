@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.SimpleDateFormat;
+
 public class RequestTaskActivity extends AppCompatActivity {
 
     private EditText loads;
@@ -27,6 +29,7 @@ public class RequestTaskActivity extends AppCompatActivity {
     private RadioButton cMuddy;
     private RadioButton cStained;
     private EditText notes;
+    private String requestorEmail;
     private String userID;
 
     @Override
@@ -47,6 +50,7 @@ public class RequestTaskActivity extends AppCompatActivity {
         notes         = findViewById(R.id.editText5);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         userID = preferences.getString("USER_ID_KEY", "");
+        requestorEmail = preferences.getString("EMAIL_KEY", "");
     }
 
     public void submitCustomerRequest(View v) {
@@ -69,14 +73,16 @@ public class RequestTaskActivity extends AppCompatActivity {
 
         String iNotes         = notes.getText().toString();
 
-        showToast(iLoads);
+        String loadSize = iSmall ? "Small" : iMedium ? "Medium" : iLarge ? "Large" : "";
+        String type = iCloths ? "Cloths" : iBeddingTowel ? "Bedding" : iOther ? "Other" : "";
+        String condition = iNormalDirty ? "Normal" : iMuddy ? "Muddy" : iStained ? "Stained" : "";
+        java.util.Date date = new java.util.Date();
 
-        showToast(a); showToast(b); showToast(c); showToast(d); showToast(e); showToast(f);
-        showToast(g); showToast(h); showToast(i);
+        Task t = new Task(date.toString(), iNotes, loadSize, this.requestorEmail, iLoads, condition, type);
+//        showToast2(t.getRequestDate());
+        DataBaseWriter writeTask = new DataBaseWriter(this);
+        writeTask.addNewTask(t);
 
-        showToast2(iNotes);
-
-        //Task t = new Task();
     }
 
     private void showToast(Integer text) {

@@ -1,7 +1,7 @@
 package com.example.washsauce_dev;
 
 public class Task {
-    protected Date requestDate;
+    protected String requestDate;
     protected Date acceptDate;
     protected Date finishDate;
     protected String comments;
@@ -14,7 +14,7 @@ public class Task {
     protected String loadType;
     protected float price;
 
-    public Task(Date requestDate, String comments, String size, String requestorEmail, int numberOfLoads, String condition, String loadType) {
+    public Task(String requestDate, String comments, String size, String requestorEmail, int numberOfLoads, String condition, String loadType) {
         this.requestDate = requestDate;
         this.acceptDate = null;
         this.finishDate = null;
@@ -33,11 +33,11 @@ public class Task {
         return (float) 0;
     }
 
-    public Date getRequestDate() {
+    public String getRequestDate() {
         return requestDate;
     }
 
-    public void setRequestDate(Date requestDate) {
+    public void setRequestDate(String requestDate) {
         this.requestDate = requestDate;
     }
 

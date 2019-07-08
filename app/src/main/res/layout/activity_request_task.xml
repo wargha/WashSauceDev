@@ -237,7 +237,7 @@
         app:layout_constraintVertical_bias="0.033" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/clearTask"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -247,6 +247,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/custom_buttons"
+        android:onClick="clearTask"
         android:text="Clear"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

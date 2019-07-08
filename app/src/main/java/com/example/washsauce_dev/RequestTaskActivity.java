@@ -46,30 +46,24 @@ public class RequestTaskActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         userID = preferences.getString("USER_ID_KEY", "");
         requestorEmail = preferences.getString("EMAIL_KEY", "");
-        clear = findViewById((R.id.clear));
-
-
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loads.setText("");
-                notes.setText("");
-                sSmall.setChecked(false);
-                sMedium.setChecked(false);
-                sLarge.setChecked(false);
-                kCloths.setChecked(false);
-                kBeddingTowel.setChecked(false);
-                kOther.setChecked(false);
-                cNormalDirty.setChecked(false);
-                cMuddy.setChecked(false);
-                cStained.setChecked(false);
-
-            }
-        });
-
+        clear = findViewById((R.id.clearTask));
 
     }
 
+    public void clearTask() {
+        loads.setText("");
+        notes.setText("");
+        sSmall.setChecked(false);
+        sMedium.setChecked(false);
+        sLarge.setChecked(false);
+        kCloths.setChecked(false);
+        kBeddingTowel.setChecked(false);
+        kOther.setChecked(false);
+        cNormalDirty.setChecked(false);
+        cMuddy.setChecked(false);
+        cStained.setChecked(false);
+
+    }
     public void submitCustomerRequest(View v) {
 
        Integer iLoads = Integer.parseInt(loads.getText().toString());

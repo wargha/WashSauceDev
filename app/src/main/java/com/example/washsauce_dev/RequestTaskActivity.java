@@ -5,6 +5,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class RequestTaskActivity extends AppCompatActivity {
     private EditText notes;
     private String requestorEmail;
     private String userID;
+    private Button clear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,28 @@ public class RequestTaskActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         userID = preferences.getString("USER_ID_KEY", "");
         requestorEmail = preferences.getString("EMAIL_KEY", "");
+        clear = findViewById((R.id.clear));
+
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loads.setText("");
+                notes.setText("");
+                sSmall.setChecked(false);
+                sMedium.setChecked(false);
+                sLarge.setChecked(false);
+                kCloths.setChecked(false);
+                kBeddingTowel.setChecked(false);
+                kOther.setChecked(false);
+                cNormalDirty.setChecked(false);
+                cMuddy.setChecked(false);
+                cStained.setChecked(false);
+
+            }
+        });
+
+
     }
 
     public void submitCustomerRequest(View v) {
@@ -85,4 +109,5 @@ public class RequestTaskActivity extends AppCompatActivity {
     private void showToastStr(String text) {
         Toast.makeText(RequestTaskActivity.this, text, Toast.LENGTH_SHORT).show();
     }
+
 }

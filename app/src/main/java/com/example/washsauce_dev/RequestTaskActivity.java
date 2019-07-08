@@ -4,17 +4,10 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.text.SimpleDateFormat;
 
 public class RequestTaskActivity extends AppCompatActivity {
 
@@ -85,11 +78,11 @@ public class RequestTaskActivity extends AppCompatActivity {
 
     }
 
-    private void showToast(Integer text) {
+    private void showToastInt(Integer text) {
         Toast.makeText(RequestTaskActivity.this, text.toString(), Toast.LENGTH_SHORT).show();
     }
 
-    private void showToast2(String text) {
+    private void showToastStr(String text) {
         Toast.makeText(RequestTaskActivity.this, text, Toast.LENGTH_SHORT).show();
     }
 }

@@ -9,7 +9,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -22,16 +21,22 @@ public class DataBaseReader {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Activity activity;
-    INotifyResults listener;
+    INotifyUserReceived userReceived;
+    INotifyTaskReceived taskReceived;
     public DataBaseReader(Activity activity) {
         this.activity = activity;
-        this.listener = null;
+        this.userReceived = null;
+        this.taskReceived = null;
     }
 
-    public DataBaseReader(Activity activity, INotifyResults listener) {
-        this.activity = activity;
-        this.listener = listener;
+    public void setUserReceived(INotifyUserReceived userReceived) {
+        this.userReceived = userReceived;
     }
+
+    public void setTaskReceived(INotifyTaskReceived taskReceived) {
+        this.taskReceived = taskReceived;
+    }
+
     public void readUser(String id) {
     db.collection("users").document(id).get()
             .addOnSuccessListener(documentSnapshot -> {
@@ -58,14 +63,14 @@ public class DataBaseReader {
                             Toast.makeText(activity, "Found you in the database :)",
                                     Toast.LENGTH_SHORT).show();
 
-                            if (listener != null) {
+                            if (userReceived != null) {
 //                                    Toast.makeText(activity, document.getId(),
 //                                            Toast.LENGTH_LONG).show();
                                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
                                 SharedPreferences.Editor editor = preferences.edit();
                                 editor.putString("USER_ID_KEY", document.getId());
                                 editor.apply();
-                                listener.notifyResult(document.toObject(User.class));
+                                userReceived.notifyUserResult(document.toObject(User.class));
                             } else {
                                 Toast.makeText(activity, "I'm null =(",
                                         Toast.LENGTH_LONG).show();
@@ -84,28 +89,19 @@ public class DataBaseReader {
     public void readTaskByEmail(String email) {
         db.collection("tasks")
                 .whereEqualTo("requestorEmail", email)
-                .limit(1)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.d(TAG, document.getId() + " => " + document.getData());
-                            Toast.makeText(activity, "Found you in the database :)",
+                            Toast.makeText(activity, "Found the task in the database :)",
                                     Toast.LENGTH_SHORT).show();
-
-                            if (listener != null) {
-//                                    Toast.makeText(activity, document.getId(),
-//                                            Toast.LENGTH_LONG).show();
-                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.putString("USER_ID_KEY", document.getId());
-                                editor.apply();
-                                listener.notifyResult(document.toObject(User.class));
+                            if (taskReceived != null) {
+                               taskReceived.notifyTaskResult(document.toObject(Task.class));
                             } else {
-                                Toast.makeText(activity, "I'm null =(",
-                                        Toast.LENGTH_LONG).show();
-                            }
-
+                            Toast.makeText(activity, "I'm null =(",
+                                    Toast.LENGTH_LONG).show();
+                        }
                         }
 
                     } else {

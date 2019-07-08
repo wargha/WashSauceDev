@@ -46,7 +46,7 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     public void authenticateUser(View v) {
-        String email = editName.getText().toString();
+        String email = editName.getText().toString().toLowerCase();
         String password = editPw.getText().toString();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();

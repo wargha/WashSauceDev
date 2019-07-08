@@ -72,7 +72,6 @@ public class RequestTaskActivity extends AppCompatActivity {
         java.util.Date date = new java.util.Date();
 
         Task t = new Task(date.toString(), iNotes, loadSize, this.requestorEmail, iLoads, condition, type);
-//        showToast2(t.getRequestDate());
         DataBaseWriter writeTask = new DataBaseWriter(this);
         writeTask.addNewTask(t);
 

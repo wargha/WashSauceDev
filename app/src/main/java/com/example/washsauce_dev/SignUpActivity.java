@@ -71,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void trySignUp(View view) {
         Toast.makeText(SignUpActivity.this, "Starting to create user",
                 Toast.LENGTH_SHORT).show();
-        String emailDB = email.getText().toString();
+        String emailDB = email.getText().toString().toLowerCase();
         String passwordDB = pw.getText().toString();
         String phoneDB = phone.getText().toString();
         String locationDB = location.getText().toString();

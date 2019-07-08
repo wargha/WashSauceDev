@@ -2,8 +2,8 @@ package com.example.washsauce_dev;
 
 public class Task {
     protected String requestDate;
-    protected Date acceptDate;
-    protected Date finishDate;
+    protected String acceptDate;
+    protected String finishDate;
     protected String comments;
     protected String status;
     protected Boolean isFinished;
@@ -12,12 +12,29 @@ public class Task {
     protected String condition;
     protected String size;
     protected String loadType;
-    protected float price;
+    protected String washer;
+    protected String washerNumber;
+
+    public Task() {
+        this.requestDate = "";
+        this.acceptDate = "";
+        this.finishDate = "";
+        this.comments = "";
+        this.status = "Requested";
+        this.isFinished = null;
+        this.requestorEmail = "";
+        this.numberOfLoads = 0;
+        this.condition = "";
+        this.loadType = "";
+        this.size = "";
+        this.washer = "";
+        this.washerNumber = "";
+    }
 
     public Task(String requestDate, String comments, String size, String requestorEmail, int numberOfLoads, String condition, String loadType) {
         this.requestDate = requestDate;
-        this.acceptDate = null;
-        this.finishDate = null;
+        this.acceptDate = "";
+        this.finishDate = "";
         this.comments = comments;
         this.status = "Requested";
         this.isFinished = false;
@@ -26,7 +43,8 @@ public class Task {
         this.condition = condition;
         this.loadType = loadType;
         this.size = size;
-        this.price = calculatePrice();
+        this.washer = "";
+        this.washerNumber = "";
     }
 
     private float calculatePrice() {
@@ -41,19 +59,19 @@ public class Task {
         this.requestDate = requestDate;
     }
 
-    public Date getAcceptDate() {
+    public String getAcceptDate() {
         return acceptDate;
     }
 
-    public void setAcceptDate(Date acceptDate) {
+    public void setAcceptDate(String acceptDate) {
         this.acceptDate = acceptDate;
     }
 
-    public Date getFinishDate() {
+    public String getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(Date finishDate) {
+    public void setFinishDate(String finishDate) {
         this.finishDate = finishDate;
     }
 
@@ -113,11 +131,4 @@ public class Task {
         this.loadType = loadType;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
 }

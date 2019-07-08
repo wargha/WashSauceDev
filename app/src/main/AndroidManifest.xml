@@ -12,7 +12,6 @@
         <activity android:name=".CustomerRequestActivity"></activity>
         <activity android:name=".WasherHomeActivity"></activity>
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".Status" />
         <activity android:name=".ConfirmedActivity" />
         <activity android:name=".ConfirmationActivity" />
         <activity android:name=".HistoryActivity" />

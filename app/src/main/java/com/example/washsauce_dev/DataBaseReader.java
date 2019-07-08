@@ -1,5 +1,7 @@
 package com.example.washsauce_dev;
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -32,22 +34,16 @@ public class DataBaseReader {
     }
     public void readUser(String id) {
     db.collection("users").document(id).get()
-            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (documentSnapshot.exists()) {
-                        Log.d(TAG, "It worked!");
-                    } else {
+            .addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    Log.d(TAG, "It worked!");
+                } else {
 //                      Toast.makeText(, "Error", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Error adding document");
-                    }
+                    Log.d(TAG, "Error adding document");
                 }
             })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
+            .addOnFailureListener(e -> {
 
-                }
             });
     }
 
@@ -55,29 +51,67 @@ public class DataBaseReader {
         db.collection("users")
                 .whereEqualTo("email", email)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                Toast.makeText(activity, "Found you in the database :)",
-                                        Toast.LENGTH_SHORT).show();
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d(TAG, document.getId() + " => " + document.getData());
+                            Toast.makeText(activity, "Found you in the database :)",
+                                    Toast.LENGTH_SHORT).show();
 
-                                if (listener != null) {
-                                    listener.notifyResult(document.toObject(User.class));
-                                } else {
-                                    Toast.makeText(activity, "I'm null =(",
-                                            Toast.LENGTH_LONG).show();
-                                }
-
+                            if (listener != null) {
+//                                    Toast.makeText(activity, document.getId(),
+//                                            Toast.LENGTH_LONG).show();
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("USER_ID_KEY", document.getId());
+                                editor.apply();
+                                listener.notifyResult(document.toObject(User.class));
+                            } else {
+                                Toast.makeText(activity, "I'm null =(",
+                                        Toast.LENGTH_LONG).show();
                             }
 
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                            Toast.makeText(activity, "Couldn't read it! :(",
-                                    Toast.LENGTH_SHORT).show();
                         }
+
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                        Toast.makeText(activity, "Couldn't read it! :(",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void readTaskByEmail(String email) {
+        db.collection("tasks")
+                .whereEqualTo("requestorEmail", email)
+                .limit(1)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d(TAG, document.getId() + " => " + document.getData());
+                            Toast.makeText(activity, "Found you in the database :)",
+                                    Toast.LENGTH_SHORT).show();
+
+                            if (listener != null) {
+//                                    Toast.makeText(activity, document.getId(),
+//                                            Toast.LENGTH_LONG).show();
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("USER_ID_KEY", document.getId());
+                                editor.apply();
+                                listener.notifyResult(document.toObject(User.class));
+                            } else {
+                                Toast.makeText(activity, "I'm null =(",
+                                        Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                        Toast.makeText(activity, "Couldn't read it! :(",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }

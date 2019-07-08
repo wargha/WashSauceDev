@@ -10,8 +10,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,9 +33,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText location;
     private EditText name;
     private Button buttonConfirm;
+    public Button clearSignUp;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -49,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
 //        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
 
         buttonConfirm = findViewById(R.id.submit);
+        clearSignUp = findViewById(R.id.clearSignUp);
 
         //Button clearForm = findViewById(R.id.clearSignUp);
 
@@ -59,6 +61,8 @@ public class SignUpActivity extends AppCompatActivity {
         phone.addTextChangedListener(signUpTextWatcher);
         // Submit button will not work unless all input fields have content.
         buttonConfirm.setEnabled(false);
+
+
     }
 
     @Override
@@ -126,7 +130,9 @@ public class SignUpActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
 
         }
-    };
+
+     };
+}
 
     /*public void clearForm() {
         TextView myTextView13 = findViewById(R.id.textInputLayout13);
@@ -142,4 +148,4 @@ public class SignUpActivity extends AppCompatActivity {
         TextView myTextView18 = findViewById(R.id.textInputLayout18);
         myTextView18.setText("");
     }*/
-}
+

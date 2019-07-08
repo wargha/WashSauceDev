@@ -191,6 +191,7 @@
         android:layout_marginRight="28dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/custom_buttons"
+        android:onClick="@string/clearSignUp"
         android:text="Clear"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

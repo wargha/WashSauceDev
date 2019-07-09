@@ -10,18 +10,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,10 +31,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText location;
     private EditText name;
     private Button buttonConfirm;
-    public Button clearSignUp;
+    private Button clearSignUp;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -50,9 +48,6 @@ public class SignUpActivity extends AppCompatActivity {
 //        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
 
         buttonConfirm = findViewById(R.id.submit);
-        clearSignUp = findViewById(R.id.clearSignUp);
-
-        //Button clearForm = findViewById(R.id.clearSignUp);
 
         name.addTextChangedListener(signUpTextWatcher);
         email.addTextChangedListener(signUpTextWatcher);
@@ -61,7 +56,18 @@ public class SignUpActivity extends AppCompatActivity {
         phone.addTextChangedListener(signUpTextWatcher);
         // Submit button will not work unless all input fields have content.
         buttonConfirm.setEnabled(false);
+        clearSignUp = findViewById((R.id.clearSignUp));
 
+        clearSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                email.setText("");
+                pw.setText("");
+                phone.setText("");
+                location.setText("");
+                name.setText("");
+            }
+        });
 
     }
 
@@ -130,9 +136,7 @@ public class SignUpActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
 
         }
-
-     };
-}
+    };
 
     /*public void clearForm() {
         TextView myTextView13 = findViewById(R.id.textInputLayout13);
@@ -148,4 +152,5 @@ public class SignUpActivity extends AppCompatActivity {
         TextView myTextView18 = findViewById(R.id.textInputLayout18);
         myTextView18.setText("");
     }*/
+}
 

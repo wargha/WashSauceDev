@@ -1,6 +1,7 @@
 package com.example.washsauce_dev;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -32,9 +33,12 @@ public class DataBaseWriter {
     public void addNewTask(Task data) {
         db.collection("tasks")
                 .add(data)
-                .addOnSuccessListener(documentReference ->
-                        Log.w("RequestTaskActivity", "Document added with success!"))
-
+                .addOnSuccessListener(documentReference -> {
+                        Log.w("RequestTaskActivity", "Document added with success!");
+                        Intent i = new Intent(this.activity, UserHomeActivity.class);
+                        activity.startActivity(i);
+                })
+//                     Intent i = new Intent(activity, UserHomeActivity.class);
                 .addOnFailureListener(e -> Log.w("RequestTaskActivity", "Error adding document", e));
     }
 

@@ -116,7 +116,7 @@
         app:layout_constraintTop_toTopOf="@+id/frameLayout4" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/loadNumber"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginTop="8dp"
@@ -130,21 +130,21 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/loadType"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Types: "
+        android:text="Type:"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/loadNumber" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/loadCondition"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -157,10 +157,10 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/loadType" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/washer"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -172,10 +172,10 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/loadCondition" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/status"
         android:layout_width="290dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -189,7 +189,7 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/washer"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button

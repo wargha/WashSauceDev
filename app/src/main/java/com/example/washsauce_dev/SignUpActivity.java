@@ -59,8 +59,8 @@ public class SignUpActivity extends AppCompatActivity {
         clearSignUp = findViewById((R.id.clearSignUp));
 
         clearSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+     public void onClick(View v) {
                 email.setText("");
                 pw.setText("");
                 phone.setText("");

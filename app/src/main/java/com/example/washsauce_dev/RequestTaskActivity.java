@@ -29,7 +29,7 @@ public class RequestTaskActivity extends AppCompatActivity {
     private EditText notes;
     private String requestorEmail;
     private String userID;
-    private Button clear;
+    public  Button clear;
     private Button buttonConfirm;
 
     @Override
@@ -52,7 +52,7 @@ public class RequestTaskActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         userID = preferences.getString("USER_ID_KEY", "");
         requestorEmail = preferences.getString("EMAIL_KEY", "");
-        clear = findViewById((R.id.clearTask));
+        clear = findViewById(R.id.clear);
 
         // Make sure the submit button doesn't work if any required field is empty
         buttonConfirm = findViewById(R.id.request);
@@ -69,22 +69,29 @@ public class RequestTaskActivity extends AppCompatActivity {
         cNormalDirty.addTextChangedListener(requestTextWatcher);
         cMuddy.addTextChangedListener(requestTextWatcher);
         cStained.addTextChangedListener(requestTextWatcher);
+
+        //clear button
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loads.setText("");
+                notes.setText("");
+                sSmall.setChecked(false);
+                sMedium.setChecked(false);
+                sLarge.setChecked(false);
+                kCloths.setChecked(false);
+                kBeddingTowel.setChecked(false);
+                kOther.setChecked(false);
+                cNormalDirty.setChecked(false);
+                cMuddy.setChecked(false);
+                cStained.setChecked(false);
+            }
+        });
+
+
     }
 
-    public void clearTask() {
-        loads.setText("");
-        notes.setText("");
-        sSmall.setChecked(false);
-        sMedium.setChecked(false);
-        sLarge.setChecked(false);
-        kCloths.setChecked(false);
-        kBeddingTowel.setChecked(false);
-        kOther.setChecked(false);
-        cNormalDirty.setChecked(false);
-        cMuddy.setChecked(false);
-        cStained.setChecked(false);
 
-    }
     public void submitCustomerRequest(View v) {
 
         // Send user input to the database

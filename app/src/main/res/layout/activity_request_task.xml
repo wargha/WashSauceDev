@@ -216,7 +216,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/request"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -237,7 +237,7 @@
         app:layout_constraintVertical_bias="0.033" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/clear"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
@@ -247,12 +247,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/custom_buttons"
+        android:onClick="@string/clearSignUp"
         android:text="Clear"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/request"
         app:layout_constraintVertical_bias="0.011" />
 
     <EditText

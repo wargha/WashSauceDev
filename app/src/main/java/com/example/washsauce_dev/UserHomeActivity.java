@@ -2,17 +2,11 @@ package com.example.washsauce_dev;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Map;
 
 public class UserHomeActivity extends AppCompatActivity implements INotifyUserReceived,INotifyTaskReceived{
     private TextView welcomeStr;
@@ -27,7 +21,6 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
         readUser();
-        readTask();
         welcomeStr = findViewById(R.id.welcomeMessage);
         loadNum = findViewById(R.id.loadNumber);
         loadType = findViewById(R.id.loadType);
@@ -65,8 +58,15 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     /* This function is called once the database reader is successful. Once we know who the user is
     * let's update the UI to make sure we get it updated custom for the user! */
     public void notifyUserResult(User user) {
-        runOnUiThread(() -> welcomeStr.setText("Welcome " + user.name + "!")
-        );
+        if (user.washer) {
+            Intent i = new Intent(this, WasherHomeActivity.class);
+            startActivity(i);
+        } else {
+            readTask();
+            runOnUiThread(() -> welcomeStr.setText("Welcome " + user.name + "!")
+            );
+        }
+
     }
 
     public void notifyTaskResult(Task task) {

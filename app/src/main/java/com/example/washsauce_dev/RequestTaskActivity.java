@@ -38,7 +38,7 @@ public class RequestTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_request_task);
 
         // Read in all user inputs
-        loads         = findViewById(R.id.editText2);
+        loads         = findViewById(R.id.numberLoads);
         sSmall        = findViewById(R.id.radio_one);
         sMedium       = findViewById(R.id.radio_two);
         sLarge        = findViewById(R.id.radio_three);
@@ -71,23 +71,19 @@ public class RequestTaskActivity extends AppCompatActivity {
         cStained.addTextChangedListener(requestTextWatcher);
 
         //clear button
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loads.setText("");
-                notes.setText("");
-                sSmall.setChecked(false);
-                sMedium.setChecked(false);
-                sLarge.setChecked(false);
-                kCloths.setChecked(false);
-                kBeddingTowel.setChecked(false);
-                kOther.setChecked(false);
-                cNormalDirty.setChecked(false);
-                cMuddy.setChecked(false);
-                cStained.setChecked(false);
-            }
+        clear.setOnClickListener(v -> {
+            loads.setText("");
+            notes.setText("");
+            sSmall.setChecked(false);
+            sMedium.setChecked(false);
+            sLarge.setChecked(false);
+            kCloths.setChecked(false);
+            kBeddingTowel.setChecked(false);
+            kOther.setChecked(false);
+            cNormalDirty.setChecked(false);
+            cMuddy.setChecked(false);
+            cStained.setChecked(false);
         });
-
 
     }
 
@@ -130,7 +126,8 @@ public class RequestTaskActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String checkLoads = loads.getText().toString().trim();
-
+            Toast.makeText(RequestTaskActivity.this, checkLoads,
+                    Toast.LENGTH_SHORT).show();
             // Convert all checks into a boolean
             Boolean load = !checkLoads.isEmpty();
             Boolean size = (sSmall.isChecked() || sMedium.isChecked() || sLarge.isChecked());

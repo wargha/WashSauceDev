@@ -229,6 +229,8 @@
         android:onClick="submitCustomerRequest"
         android:text="Submit Request"
         android:textColor="#ffffff"
+        android:bottomLeftRadius="50dp"
+        android:bottomRightRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

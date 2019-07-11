@@ -2,6 +2,7 @@ package com.example.washsauce_dev;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,19 +57,8 @@ public class RequestTaskActivity extends AppCompatActivity {
 
         // Make sure the submit button doesn't work if any required field is empty
         buttonConfirm = findViewById(R.id.request);
-        buttonConfirm.setEnabled(false);
-
         // Call watcher to turn on button again once all required fields are filled
-        loads.addTextChangedListener(requestTextWatcher);
-        sSmall.addTextChangedListener(requestTextWatcher);
-        sMedium.addTextChangedListener(requestTextWatcher);
-        sLarge.addTextChangedListener(requestTextWatcher);
-        kCloths.addTextChangedListener(requestTextWatcher);
-        kBeddingTowel.addTextChangedListener(requestTextWatcher);
-        kOther.addTextChangedListener(requestTextWatcher);
-        cNormalDirty.addTextChangedListener(requestTextWatcher);
-        cMuddy.addTextChangedListener(requestTextWatcher);
-        cStained.addTextChangedListener(requestTextWatcher);
+
 
         //clear button
         clear.setOnClickListener(v -> {
@@ -90,60 +80,47 @@ public class RequestTaskActivity extends AppCompatActivity {
 
     public void submitCustomerRequest(View v) {
 
+        String checkLoads = loads.getText().toString().trim();
+        // Convert all checks into a boolean
+        Boolean load = !checkLoads.isEmpty();
+        Boolean size = (sSmall.isChecked() || sMedium.isChecked() || sLarge.isChecked());
+        Boolean kind = (kCloths.isChecked() || kBeddingTowel.isChecked() || kOther.isChecked());
+        Boolean conditionCheck = (cNormalDirty.isChecked() || cMuddy.isChecked() || cStained.isChecked());
+
+        if (!load || !size || !kind || !conditionCheck) {
+            Toast.makeText(RequestTaskActivity.this, "Please, fill out all fields",
+                    Toast.LENGTH_SHORT).show();
+        } else {  Integer iLoads = Integer.parseInt(loads.getText().toString());
+
+            Boolean iSmall        = sSmall.isChecked();
+            Boolean iMedium       = sMedium.isChecked();
+            Boolean iLarge        = sLarge.isChecked();
+            Boolean iCloths       = kCloths.isChecked();
+            Boolean iBeddingTowel = kBeddingTowel.isChecked();
+            Boolean iOther        = kOther.isChecked();
+            Boolean iNormalDirty   = cNormalDirty.isChecked();
+            Boolean iMuddy        = cMuddy.isChecked();
+            Boolean iStained      = cStained.isChecked();
+
+            String iNotes         = notes.getText().toString();
+
+            String loadSize = iSmall ? "Small" : iMedium ? "Medium" : iLarge ? "Large" : "";
+            String type = iCloths ? "Cloths" : iBeddingTowel ? "Bedding" : iOther ? "Other" : "";
+            String condition = iNormalDirty ? "Normal" : iMuddy ? "Muddy" : iStained ? "Stained" : "";
+            java.util.Date date = new java.util.Date();
+
+            Task t = new Task(date.toString(), iNotes, loadSize, this.requestorEmail, iLoads, condition, type);
+            DataBaseWriter writeTask = new DataBaseWriter(this);
+            writeTask.addNewTask(t);}
+
+        // Use boolean to turn on submit button if all required areas are filled in
+
+
         // Send user input to the database
-        Integer iLoads = Integer.parseInt(loads.getText().toString());
 
-        Boolean iSmall        = sSmall.isChecked();
-        Boolean iMedium       = sMedium.isChecked();
-        Boolean iLarge        = sLarge.isChecked();
-        Boolean iCloths       = kCloths.isChecked();
-        Boolean iBeddingTowel = kBeddingTowel.isChecked();
-        Boolean iOther        = kOther.isChecked();
-        Boolean iNormalDirty   = cNormalDirty.isChecked();
-        Boolean iMuddy        = cMuddy.isChecked();
-        Boolean iStained      = cStained.isChecked();
-
-        String iNotes         = notes.getText().toString();
-
-        String loadSize = iSmall ? "Small" : iMedium ? "Medium" : iLarge ? "Large" : "";
-        String type = iCloths ? "Cloths" : iBeddingTowel ? "Bedding" : iOther ? "Other" : "";
-        String condition = iNormalDirty ? "Normal" : iMuddy ? "Muddy" : iStained ? "Stained" : "";
-        java.util.Date date = new java.util.Date();
-
-        Task t = new Task(date.toString(), iNotes, loadSize, this.requestorEmail, iLoads, condition, type);
-        DataBaseWriter writeTask = new DataBaseWriter(this);
-        writeTask.addNewTask(t);
 
     }
 
-    // Submit button will not work unless all required input fields are filled
-    private TextWatcher requestTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String checkLoads = loads.getText().toString().trim();
-            Toast.makeText(RequestTaskActivity.this, checkLoads,
-                    Toast.LENGTH_SHORT).show();
-            // Convert all checks into a boolean
-            Boolean load = !checkLoads.isEmpty();
-            Boolean size = (sSmall.isChecked() || sMedium.isChecked() || sLarge.isChecked());
-            Boolean kind = (kCloths.isChecked() || kBeddingTowel.isChecked() || kOther.isChecked());
-            Boolean condition = (cNormalDirty.isChecked() || cMuddy.isChecked() || cStained.isChecked());
-
-            // Use boolean to turn on submit button if all required areas are filled in
-            buttonConfirm.setEnabled(load && size && kind && condition);
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-
-    };
 
 }

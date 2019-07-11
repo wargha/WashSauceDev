@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+/*******************************************
+ * This activity is the homepage for the washer user. Here, the washer is able
+ * to review the customer request they are currently working on, or select a
+ * request if they don't have one yet. These requests are coming from the database.
+ **/
+
 public class WasherHomeActivity extends AppCompatActivity {
 
     @Override

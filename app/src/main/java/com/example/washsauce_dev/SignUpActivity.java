@@ -23,7 +23,15 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.HashMap;
 import java.util.Map;
 
+/**********************************
+ * This activity is for new users of the WashSauce to register as customers.
+ * Here, they can input their basic information, then sign-in for the
+ * first time and make their first request.
+ */
+
 public class SignUpActivity extends AppCompatActivity {
+
+    // Read in all inputs from the form
     private FirebaseAuth mAuth;
     private EditText email;
     private EditText pw;

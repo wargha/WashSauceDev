@@ -24,9 +24,9 @@ public class WasherHomeActivity extends AppCompatActivity {
         //Button buttonConfirm;
         //Button clear;
 
-        b1 = findViewById(R.id.radio_20);
-        b2 = findViewById(R.id.radio_21);
-        b3 = findViewById(R.id.radio_22);
+        b1 = findViewById(R.id.radioRequest1);
+        b2 = findViewById(R.id.radioRequest2);
+        b3 = findViewById(R.id.radioRequest3);
 
         //buttonConfirm = findViewById(R.id.selectTask);
         //clear = findViewById(R.id.clearTask);

@@ -15,6 +15,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     private TextView loadCondition;
     private TextView washer;
     private TextView status;
+    private TextView phone;
     private SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
         loadCondition = findViewById(R.id.loadCondition);
         washer = findViewById(R.id.washer);
         status = findViewById(R.id.status);
+        phone = findViewById(R.id.phoneNum);
     }
 
     /* This function is called as an onclick from a button and takes the user to a new

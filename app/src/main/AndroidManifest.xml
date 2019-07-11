@@ -9,12 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomerRequestActivity"></activity>
         <activity android:name=".WasherHomeActivity"></activity>
-        <activity android:name=".ServiceActivity" />
-        <activity android:name=".ConfirmedActivity" />
-        <activity android:name=".ConfirmationActivity" />
-        <activity android:name=".HistoryActivity" />
         <activity android:name=".RequestTaskActivity" />
         <activity android:name=".UserHomeActivity" />
         <activity android:name=".IntroActivity" />

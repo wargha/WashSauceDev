@@ -40,7 +40,6 @@ public class WasherHomeActivity extends AppCompatActivity {
     }
 
     public void customerRequests(View view) {
-        Intent i = new Intent(this, CustomerRequestActivity.class);
-        startActivity(i);
+
     }
 }

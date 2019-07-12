@@ -15,8 +15,17 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+/***********************************
+ * This activity is an additional function connected to the customer homepage.
+ * The customer is able to fill out the form in this activity to request
+ * a wash, that data is then sent to the database and pulled for the washer
+ * homepage so a washer has the chance to take that request and carry it out.
+ * The request will also show up on the customer homepage as a reference.
+ */
+
 public class RequestTaskActivity extends AppCompatActivity {
 
+    // Read in all inputs from the form
     private EditText loads;
     private RadioButton sSmall;
     private RadioButton sMedium;
@@ -87,6 +96,7 @@ public class RequestTaskActivity extends AppCompatActivity {
         Boolean kind = (kCloths.isChecked() || kBeddingTowel.isChecked() || kOther.isChecked());
         Boolean conditionCheck = (cNormalDirty.isChecked() || cMuddy.isChecked() || cStained.isChecked());
 
+        // Use boolean values to check for empty inputs
         if (!load || !size || !kind || !conditionCheck) {
             Toast.makeText(RequestTaskActivity.this, "Please, fill out all fields",
                     Toast.LENGTH_SHORT).show();

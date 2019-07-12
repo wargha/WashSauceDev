@@ -36,6 +36,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/custom_buttons"
+        android:onClick="goToHistory"
         android:text="Request History"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WasherHomeActivity"></activity>
+        <activity android:name=".History"></activity>
+        <activity android:name=".WasherHomeActivity" />
         <activity android:name=".RequestTaskActivity" />
         <activity android:name=".UserHomeActivity" />
         <activity android:name=".IntroActivity" />

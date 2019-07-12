@@ -24,7 +24,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     private TextView request1;
     private TextView request2;
     private TextView request3;
-
+    private List<Task> taskList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     }
 
     public void notifyTasksResult(List<Task> taskList) {
+        this.taskList = taskList;
         int size = taskList.size();
 
         if (size > 0) {

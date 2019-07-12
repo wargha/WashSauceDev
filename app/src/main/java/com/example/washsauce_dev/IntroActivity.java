@@ -31,7 +31,8 @@ public class IntroActivity extends AppCompatActivity {
         editName.addTextChangedListener(loginTextWatcher);
         editPw.addTextChangedListener(loginTextWatcher);
 
-        buttonConfirm.setEnabled(false);
+
+         buttonConfirm.setEnabled(false);
         //buttonConfirm.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
     }

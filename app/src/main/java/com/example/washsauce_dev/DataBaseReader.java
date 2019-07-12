@@ -30,6 +30,7 @@ public class DataBaseReader {
         this.activity = activity;
         this.userReceived = null;
         this.taskReceived = null;
+        this.tasksReceived = null;
     }
 
     public void setUserReceived(INotifyUserReceived userReceived) {

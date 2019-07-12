@@ -55,6 +55,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         request2 = findViewById(R.id.request2);
         request3 = findViewById(R.id.request3);
         loads = findViewById(R.id.loadsBox);
+        type = findViewById(R.id.typeBox);
         condition = findViewById(R.id.conditionBox);
         customer = findViewById(R.id.customerBox);
         status = findViewById(R.id.statusBox);
@@ -94,9 +95,14 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     }
 
     private void updateUpperBox(int i) {
-    Task t = taskList.get(i);
+    Task t = taskList.get(i - 1);
         runOnUiThread(() -> {
             loads.setText("Amount of loads: " + t.numberOfLoads);
+            condition.setText("Load's condition: " + t.condition);
+            customer.setText("Customer e-mail " + t.requestorEmail);
+            status.setText("Status: Accepted by you");
+            phone.setText("Customer contact phone: 000-000-000" );
+            type.setText("Loads type: " + t.loadType);
         });
     }
 

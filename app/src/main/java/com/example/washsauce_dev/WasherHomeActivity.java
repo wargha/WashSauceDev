@@ -41,6 +41,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         b1 = findViewById(R.id.radioRequest1);
         b2 = findViewById(R.id.radioRequest2);
         b3 = findViewById(R.id.radioRequest3);
+        clearTask = findViewById(R.id.clearTask);
 
         name = findViewById(R.id.name);
         request1 = findViewById(R.id.request1);
@@ -52,12 +53,14 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         d.readTasksByLocation("Rexburg");
 
 
-        clearTask.setOnClickListener(v -> {
-            b1.setChecked(false);
-            b2.setChecked(false);
-            b3.setChecked(false);
-        });
 
+        clearTask.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                b1.setChecked(false);
+                b2.setChecked(false);
+                b3.setChecked(false);
+            }
+        });
 
     }
 

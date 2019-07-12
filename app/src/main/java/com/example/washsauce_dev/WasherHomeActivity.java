@@ -31,6 +31,13 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     private RadioButton b3;
     public Button clearTask;
 
+    private TextView loads;
+    private TextView type;
+    private TextView condition;
+    private TextView customer;
+    private TextView status;
+    private TextView phone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +48,32 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         b1 = findViewById(R.id.radioRequest1);
         b2 = findViewById(R.id.radioRequest2);
         b3 = findViewById(R.id.radioRequest3);
+        clearTask = findViewById(R.id.clearTask);
 
         name = findViewById(R.id.name);
         request1 = findViewById(R.id.request1);
         request2 = findViewById(R.id.request2);
         request3 = findViewById(R.id.request3);
+        loads = findViewById(R.id.loadsBox);
+        condition = findViewById(R.id.conditionBox);
+        customer = findViewById(R.id.customerBox);
+        status = findViewById(R.id.statusBox);
+        phone = findViewById(R.id.phoneBox);
+
         updateUI();
         DataBaseReader d = new DataBaseReader(this);
         d.setTasksReceived(this);
         d.readTasksByLocation("Rexburg");
 
 
-        clearTask.setOnClickListener(v -> {
-            b1.setChecked(false);
-            b2.setChecked(false);
-            b3.setChecked(false);
-        });
 
+        clearTask.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                b1.setChecked(false);
+                b2.setChecked(false);
+                b3.setChecked(false);
+            }
+        });
 
     }
 
@@ -68,7 +84,20 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     }
 
     public void customerRequests(View view) {
+        if (b1.isChecked()) {
+            updateUpperBox(1);
+        } else if (b2.isChecked()) {
+            updateUpperBox(2);
+        } else if (b3.isChecked()) {
+            updateUpperBox(3);
+        }
+    }
 
+    private void updateUpperBox(int i) {
+    Task t = taskList.get(i);
+        runOnUiThread(() -> {
+            loads.setText("Amount of loads: " + t.numberOfLoads);
+        });
     }
 
     public void notifyTasksResult(List<Task> taskList) {

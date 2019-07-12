@@ -62,6 +62,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     public void notifyUserResult(User user) {
         if (user.washer) {
             Intent i = new Intent(this, WasherHomeActivity.class);
+            i.putExtra("NAME_KEY", user.name);
             startActivity(i);
         } else {
             readTask();
@@ -91,6 +92,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
             loadCondition.setText("Conditions of the load: " + task.condition);
             loadType.setText("Type of Load: " + task.loadType);
             washer.setText("Washer: " + washerTemp);
+            phone.setText("Washer's phone: " + washerNumberTemp);
         });
     }
 }

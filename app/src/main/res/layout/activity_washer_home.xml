@@ -25,10 +25,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/request3" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/name"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -55,7 +55,7 @@
         android:background="#ffb347"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15">
+        app:layout_constraintTop_toBottomOf="@+id/name">
 
     </FrameLayout>
 
@@ -142,55 +142,55 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/request1"
         android:layout_width="250dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="(No Request Available)"
-        android:textSize="15dp"
         android:textAlignment="center"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/request2"
         android:layout_width="250dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="(No Request Available)"
-        android:textSize="15dp"
         android:textAlignment="center"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintTop_toBottomOf="@+id/request1" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/request3"
         android:layout_width="250dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="(No Request Available)"
-        android:textSize="15dp"
         android:textAlignment="center"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintTop_toBottomOf="@+id/request2" />
 
     <Button
         android:id="@+id/clearTask"
@@ -221,7 +221,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintEnd_toStartOf="@+id/request2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

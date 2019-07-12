@@ -14,6 +14,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class DataBaseReader {
@@ -23,6 +25,7 @@ public class DataBaseReader {
     Activity activity;
     INotifyUserReceived userReceived;
     INotifyTaskReceived taskReceived;
+    INotify3TasksReceived tasksReceived;
     public DataBaseReader(Activity activity) {
         this.activity = activity;
         this.userReceived = null;
@@ -35,6 +38,10 @@ public class DataBaseReader {
 
     public void setTaskReceived(INotifyTaskReceived taskReceived) {
         this.taskReceived = taskReceived;
+    }
+
+    public void setTasksReceived(INotify3TasksReceived tasksReceived) {
+        this.tasksReceived = tasksReceived;
     }
 
     public void readUser(String id) {
@@ -101,8 +108,31 @@ public class DataBaseReader {
                             } else {
                             Toast.makeText(activity, "I'm null =(",
                                     Toast.LENGTH_LONG).show();
+                            }
                         }
+
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                        Toast.makeText(activity, "Couldn't read it! :(",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void readTasksByLocation(String location) {
+        List<Task> listOfTasks = new ArrayList<Task>();
+        db.collection("tasks")
+                .limit(3)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(activity, "Found " + task.getResult().size() + " tasks in the database...",
+                                Toast.LENGTH_SHORT).show();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d(TAG, document.getId() + " => " + document.getData());
+                            listOfTasks.add(document.toObject(Task.class));
                         }
+                        tasksReceived.notifyTasksResult(listOfTasks);
 
                     } else {
                         Log.d(TAG, "Error getting documents: ", task.getException());

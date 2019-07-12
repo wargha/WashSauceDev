@@ -21,6 +21,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
         readUser();
         welcomeStr = findViewById(R.id.welcomeMessage);
         loadNum = findViewById(R.id.loadNumber);
@@ -35,6 +36,13 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     * activity to a request wash page*/
     public void goToRequest(View view) {
         Intent i = new Intent(this, RequestTaskActivity.class);
+        startActivity(i);
+    }
+
+    /* This function is called as an onclick from a button and takes the user to a new
+     * activity to view past requests*/
+    public void goToHistory(View view) {
+        Intent i = new Intent(this, History.class);
         startActivity(i);
     }
 

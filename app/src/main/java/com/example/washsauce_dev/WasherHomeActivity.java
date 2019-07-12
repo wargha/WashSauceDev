@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,21 +26,22 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
     private TextView request2;
     private TextView request3;
     private List<Task> taskList;
+    private RadioButton b1;
+    private RadioButton b2;
+    private RadioButton b3;
+    public Button clearTask;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_washer_home);
 
-        RadioButton b1;
-        RadioButton b2;
-        RadioButton b3;
-
-        //Button buttonConfirm;
-        //Button clear;
 
         b1 = findViewById(R.id.radioRequest1);
         b2 = findViewById(R.id.radioRequest2);
         b3 = findViewById(R.id.radioRequest3);
+
         name = findViewById(R.id.name);
         request1 = findViewById(R.id.request1);
         request2 = findViewById(R.id.request2);
@@ -48,6 +50,15 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         DataBaseReader d = new DataBaseReader(this);
         d.setTasksReceived(this);
         d.readTasksByLocation("Rexburg");
+
+
+        clearTask.setOnClickListener(v -> {
+            b1.setChecked(false);
+            b2.setChecked(false);
+            b3.setChecked(false);
+        });
+
+
     }
 
     private void updateUI() {

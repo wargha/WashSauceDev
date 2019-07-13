@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ccccff"
     tools:context=".History">
 
     <TextView
@@ -58,7 +59,7 @@
         android:id="@+id/frameLayout7"
         android:layout_width="310dp"
         android:layout_height="190dp"
-        android:background="#ccccff"
+        android:background="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout6"
         app:layout_constraintStart_toStartOf="@+id/frameLayout6"

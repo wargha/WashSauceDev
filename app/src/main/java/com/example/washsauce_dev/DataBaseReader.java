@@ -26,11 +26,13 @@ public class DataBaseReader {
     INotifyUserReceived userReceived;
     INotifyTaskReceived taskReceived;
     INotify3TasksReceived tasksReceived;
+    INotifyHistory taskHistoryReceived;
     public DataBaseReader(Activity activity) {
         this.activity = activity;
         this.userReceived = null;
         this.taskReceived = null;
         this.tasksReceived = null;
+        taskHistoryReceived = null;
     }
 
     public void setUserReceived(INotifyUserReceived userReceived) {
@@ -43,6 +45,10 @@ public class DataBaseReader {
 
     public void setTasksReceived(INotify3TasksReceived tasksReceived) {
         this.tasksReceived = tasksReceived;
+    }
+
+    public void setTaskHistoryReceived(INotifyHistory taskHistoryReceived) {
+        this.taskHistoryReceived = taskHistoryReceived;
     }
 
     public void readUser(String id) {
@@ -142,6 +148,34 @@ public class DataBaseReader {
                     }
                 });
     }
+
+    public void readTaskHistory(String email) {
+        List<Task> listTasks = new ArrayList<Task>();
+        db.collection("tasks")
+                .whereEqualTo("requestorEmail", email)
+                .limit(5)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        //This toast will indicate how many tasks there are
+                        Toast.makeText(activity, "Found " + task.getResult().size() + " tasks in the database...",
+                                Toast.LENGTH_SHORT).show();
+
+
+                        //This will go through each task
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Log.d(TAG, document.getId() + " => " + document.getData());
+                            listTasks.add(document.toObject(Task.class));
+                        }
+                        taskHistoryReceived.notifyTasksHistoryResult(listTasks);
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                        Toast.makeText(activity, "Couldn't read it! :(",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }
 
 

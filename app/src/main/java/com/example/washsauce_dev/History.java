@@ -9,28 +9,48 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class History extends AppCompatActivity {
-    private TextView welcomeStrHis;
-    private TextView loadNumHis;
-    private TextView loadTypeHis;
-    private TextView loadConditionHis;
-    private TextView washerHis;
-    private TextView statusHis;
-    private TextView phoneHis;
+import java.util.ArrayList;
+import java.util.List;
 
+public class History extends AppCompatActivity implements INotifyHistory{
+    TextView welcomeStrHis;
+    TextView loadNumHis;
+    TextView loadTypeHis;
+    TextView loadConditionHis;
+    TextView washerHis;
+    TextView statusHis;
+    TextView phoneHis;
+    int taskNum = 1;
+    private List<Task> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        //readUser();
-        //welcomeStrHis = findViewById(R.id.historyMessage);
-        //loadNumHis = findViewById(R.id.loadNumberOld);
-        //loadTypeHis = findViewById(R.id.loadTypeOld);
-        //loadConditionHis = findViewById(R.id.loadConditionOld);
-        //washerHis = findViewById(R.id.washerOld);
-        //statusHis = findViewById(R.id.statusOld);
-        //phoneHis = findViewById(R.id.phoneNumOld);
+
+        Intent i = getIntent();
+        String userEmail = i.getStringExtra("EMAIL_KEY");
+
+        // uncomment the following two lines to test what is the email
+        //Toast.makeText(this, userEmail,
+        //        Toast.LENGTH_LONG).show();
+
+        readTaskList(userEmail);
+
+        welcomeStrHis = findViewById(R.id.welcomeMessage);
+        loadNumHis = findViewById(R.id.loadNumber);
+        loadTypeHis = findViewById(R.id.loadType);
+        loadConditionHis = findViewById(R.id.loadCondition);
+        washerHis = findViewById(R.id.washer);
+        statusHis = findViewById(R.id.status);
+        phoneHis = findViewById(R.id.phoneNum);
+
+    }
+
+    private void readTaskList(String email) {
+        DataBaseReader d = new DataBaseReader(this);
+        d.setTaskHistoryReceived(this);
+        d.readTaskHistory(email);
     }
 
     /* We just logged in, so let's read who is coming in to this page and do something
@@ -45,7 +65,7 @@ public class History extends AppCompatActivity {
 
     /** Called when the user wants to see previous  */
     public void goToPrevious(View view) {
-        //if the previous ticket does not exist, display a toast saying this is the last to be previous
+        //try to update to next view
 
 
         //update the text to match the request in the database
@@ -56,5 +76,35 @@ public class History extends AppCompatActivity {
         //if the previous ticket does not exist, display a toast saying this is the last to be next
 
         //update the text to match the request in the database
+    }
+
+
+    public void notifyTaskResult(Task task){
+        runOnUiThread(() ->  {
+            statusHis.setText("Status: " + task.status);
+            loadNumHis.setText("Number of Loads: " + task.numberOfLoads);
+            loadConditionHis.setText("Conditions of the load: " + task.condition);
+            loadTypeHis.setText("Type of Load: " + task.loadType);
+            washerHis.setText("Washer: " + task.washer);
+            phoneHis.setText("Washer's phone: " + task.washerNumber);
+        });
+    }
+
+    public void notifyTasksHistoryResult(List<Task> taskList) {
+
+        //setContentView(R.layout.activity_history);
+
+       // TextView loadNumHis = findViewById(R.id.loadNumberOld);
+       // loadNumHis.setText("Number of Loads: "); //+ Integer.toString(taskList.get(1).getNumberOfLoads()));
+
+        //statusHis = findViewById(R.id.status);
+        //statusHis.setText("why no work?");
+
+        //notifyTaskResult(tasklist.get(0));
+
+        Toast.makeText(this, taskList.get(0).loadType,
+                Toast.LENGTH_LONG).show();
+
+
     }
 }

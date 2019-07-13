@@ -17,6 +17,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     private TextView status;
     private TextView phone;
     private SharedPreferences sharedPref;
+    private User homeUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
      * activity to view past requests*/
     public void goToHistory(View view) {
         Intent i = new Intent(this, History.class);
+        i.putExtra("EMAIL_KEY", homeUser.email);
         startActivity(i);
     }
 
@@ -73,6 +75,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
             i.putExtra("NAME_KEY", user.name);
             startActivity(i);
         } else {
+            this.homeUser = user;
             readTask();
             runOnUiThread(() -> welcomeStr.setText("Welcome " + user.name + "!")
             );

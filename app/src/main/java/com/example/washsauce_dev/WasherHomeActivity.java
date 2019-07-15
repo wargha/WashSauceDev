@@ -17,9 +17,6 @@ import java.util.List;
  * request if they don't have one yet. These requests are coming from the database.
  **/
 
-
-
-
 public class WasherHomeActivity extends AppCompatActivity implements INotify3TasksReceived {
     private TextView name;
     private TextView request1;
@@ -68,12 +65,10 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
 
 
 
-        clearTask.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                b1.setChecked(false);
-                b2.setChecked(false);
-                b3.setChecked(false);
-            }
+        clearTask.setOnClickListener(v -> {
+            b1.setChecked(false);
+            b2.setChecked(false);
+            b3.setChecked(false);
         });
 
     }

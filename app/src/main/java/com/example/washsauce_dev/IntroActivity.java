@@ -1,10 +1,7 @@
 package com.example.washsauce_dev;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,17 +30,12 @@ public class IntroActivity extends AppCompatActivity {
 
 
          buttonConfirm.setEnabled(false);
-        //buttonConfirm.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
     }
 
     protected void onStop() {
         // call the superclass method first
         super.onStop();
-
-//        SharedPreferences.Editor editor = sharedPref.edit();
-//        editor.putBoolean("authRef", true);
-//        editor.commit();
     }
 
     public void authenticateUser(View v) {
@@ -59,11 +51,6 @@ public class IntroActivity extends AppCompatActivity {
 
     public void startSignUpActivity (View view) {
         Intent i = new Intent(this, SignUpActivity.class);
-        startActivity(i);
-    }
-
-    public void  startWasherHome(View view) {
-        Intent i = new Intent(this, WasherHomeActivity.class);
         startActivity(i);
     }
 

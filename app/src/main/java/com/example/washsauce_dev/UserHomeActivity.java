@@ -43,7 +43,7 @@ public class UserHomeActivity extends AppCompatActivity implements INotifyUserRe
     /* This function is called as an onclick from a button and takes the user to a new
      * activity to view past requests*/
     public void goToHistory(View view) {
-        Intent i = new Intent(this, History.class);
+        Intent i = new Intent(this, HistoryActivity.class);
         i.putExtra("EMAIL_KEY", homeUser.email);
         startActivity(i);
     }

@@ -74,9 +74,6 @@ public class DataBaseReader {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.d(TAG, document.getId() + " => " + document.getData());
-                            Toast.makeText(activity, "Found you in the database :)",
-                                    Toast.LENGTH_SHORT).show();
-
                             if (userReceived != null) {
 //                                    Toast.makeText(activity, document.getId(),
 //                                            Toast.LENGTH_LONG).show();

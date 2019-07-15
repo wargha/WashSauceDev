@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ccccff"
-    tools:context=".History">
+    tools:context=".HistoryActivity">
 
     <TextView
         android:id="@+id/historyMainMessage"
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="Request from 0/0/0"
+        android:text="Your Submitted Requests"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout7"

@@ -23,11 +23,11 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.HashMap;
 import java.util.Map;
 
-/**********************************
+/********************************************************************
  * This activity is for new users of the WashSauce to register as customers.
  * Here, they can input their basic information, then sign-in for the
  * first time and make their first request.
- */
+ *********************************************************************/
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -52,11 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         location = findViewById(R.id.location);
         name = findViewById(R.id.name);
         mAuth = FirebaseAuth.getInstance();
-
-//        sharedPreferences = getSharedPreferences("userEmail", Context.MODE_PRIVATE)
-
         buttonConfirm = findViewById(R.id.submit);
-
         name.addTextChangedListener(signUpTextWatcher);
         email.addTextChangedListener(signUpTextWatcher);
         pw.addTextChangedListener(signUpTextWatcher);
@@ -66,29 +62,16 @@ public class SignUpActivity extends AppCompatActivity {
         buttonConfirm.setEnabled(false);
         clearSignUp = findViewById((R.id.clearSignUp));
 
-        clearSignUp.setOnClickListener(new View.OnClickListener() {
-
-     public void onClick(View v) {
-                email.setText("");
-                pw.setText("");
-                phone.setText("");
-                location.setText("");
-                name.setText("");
-            }
-        });
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
+        clearSignUp.setOnClickListener(v -> {
+                   email.setText("");
+                   pw.setText("");
+                   phone.setText("");
+                   location.setText("");
+                   name.setText("");
+               });
     }
 
     public void trySignUp(View view) {
-        Toast.makeText(SignUpActivity.this, "Starting to create user",
-                Toast.LENGTH_SHORT).show();
         String emailDB = email.getText().toString().toLowerCase();
         String passwordDB = pw.getText().toString();
         String phoneDB = phone.getText().toString();
@@ -100,7 +83,6 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnCompleteListener(SignUpActivity.this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "createUserWithEmail:success");
                         Toast.makeText(SignUpActivity.this, "It worked!",
                                 Toast.LENGTH_SHORT).show();
                         writeUser.addNewUser(u);
@@ -145,20 +127,5 @@ public class SignUpActivity extends AppCompatActivity {
 
         }
     };
-
-    /*public void clearForm() {
-        TextView myTextView13 = findViewById(R.id.textInputLayout13);
-        myTextView13.setText("");
-        TextView myTextView14 = findViewById(R.id.textInputLayout14);
-        myTextView14.setText("");
-        TextView myTextView15 = findViewById(R.id.textInputLayout15);
-        myTextView15.setText("");
-        TextView myTextView16 = findViewById(R.id.textInputLayout16);
-        myTextView16.setText("");
-        TextView myTextView17 = findViewById(R.id.textInputLayout17);
-        myTextView17.setText("");
-        TextView myTextView18 = findViewById(R.id.textInputLayout18);
-        myTextView18.setText("");
-    }*/
 }
 

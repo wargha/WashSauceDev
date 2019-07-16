@@ -1,5 +1,12 @@
 package com.example.washsauce_dev;
 
+/****
+ * This is the user object that is used starting at the sign-up page
+ * to create a new customer. It is also used for sign-in authentication
+ * and keeping track of which customers made certain tasks so the washer
+ * and customer can know each other for outside app contact when needed.
+ */
+
 public class User {
     protected String name;
     protected String location;

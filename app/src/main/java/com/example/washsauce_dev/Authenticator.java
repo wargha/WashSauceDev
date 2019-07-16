@@ -9,6 +9,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 import static android.content.ContentValues.TAG;
 
+/***
+ * This activity controls the authentication for when a user log's
+ * into the application by reading the input of the user and
+ * matching it to what the database has stored. If the inputs
+ * are recognized then the activity will grant the user passage
+ * to the customer or washer home page depending on what privileges
+ * the user has. If the input data is not recognized, a message
+ * indicating such will appear.
+ */
+
 public class Authenticator {
     Activity activity;
     private FirebaseAuth mAuth;

@@ -18,6 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/***
+ * This activity allows the application to read from the database where ever
+ * and when ever needed.
+ */
+
 public class DataBaseReader {
     User u = new User();
     private static final String TAG = "MainActivity";

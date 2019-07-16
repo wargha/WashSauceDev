@@ -14,6 +14,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+/***
+ * This activity allows the application to write to the database where ever
+ * and when ever needed.
+ */
+
 public class DataBaseWriter {
     private static final String TAG = "MainActivity";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();

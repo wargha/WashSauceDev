@@ -8,6 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/****
+ * This activity is the homepage for the customer. Here, the customer has the ability
+ * to view a history of the orders they have made in the past as well as request
+ * a new task for a washer to eventually accept. These tasks are sent to the
+ * database, and then sent to the homepage for the washer(s) to view and select.
+ */
+
 public class UserHomeActivity extends AppCompatActivity implements INotifyUserReceived,INotifyTaskReceived{
     private TextView welcomeStr;
     private TextView loadNum;

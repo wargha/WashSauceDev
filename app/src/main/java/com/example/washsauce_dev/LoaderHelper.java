@@ -1,5 +1,9 @@
 package com.example.washsauce_dev;
 
+/***
+ * This activity initiates the start-up of WashSauce acting as a screen intro.
+ */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;

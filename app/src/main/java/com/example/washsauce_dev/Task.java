@@ -1,5 +1,11 @@
 package com.example.washsauce_dev;
 
+/***
+ * This is the task object. Each task object is created when a customer requests
+ * a laundry task from the RequestTaskActivity. This task is then sent to the
+ * database and is read back on the washer homepage for the washer to select.
+ */
+
 public class Task {
     protected String requestDate;
     protected String acceptDate;

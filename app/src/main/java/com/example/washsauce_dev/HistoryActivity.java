@@ -12,6 +12,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * This activity allows the customer to see a history of their current
+ * and prior task requests for personal records.
+ */
+
 public class HistoryActivity extends AppCompatActivity implements INotifyHistory{
     TextView welcomeStrHis;
     TextView loadNumHis;

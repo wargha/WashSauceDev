@@ -1,5 +1,15 @@
 package com.example.washsauce_dev;
 
+/***
+ * This activity is the log-in page of the app. For a new user,
+ * they can click the button to go to the sign-up activity and
+ * create a profile making a new user object for themselves. If
+ * the user is a customer or washer already, they can log-in
+ * using their log-in credentials and the database will recognize
+ * them as either a washer or user, and from there send them to
+ * the respective homepage so they can start using the app from there.
+ */
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;

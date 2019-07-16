@@ -15,8 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /***
- * This activity allows the application to write to the database where ever
- * and when ever needed.
+ * This class allows the application to write to the database whereever
+ * and whenever needed.
  */
 
 public class DataBaseWriter {
@@ -28,6 +28,7 @@ public class DataBaseWriter {
         this.activity = activity;
     }
 
+    //Writes a new user to the database. This is called after the it has already created an auth port
     public void addNewUser(User data) {
             db.collection("users")
                     .add(data)
@@ -35,6 +36,7 @@ public class DataBaseWriter {
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
     }
 
+    //writes a new task to the database, so a user can create a new washing task.
     public void addNewTask(Task data) {
         db.collection("tasks")
                 .add(data)

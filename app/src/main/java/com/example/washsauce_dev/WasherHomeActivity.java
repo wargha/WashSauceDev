@@ -63,8 +63,6 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         d.setTasksReceived(this);
         d.readTasksByLocation("Rexburg");
 
-
-
         clearTask.setOnClickListener(v -> {
             b1.setChecked(false);
             b2.setChecked(false);
@@ -72,7 +70,8 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         });
 
     }
-
+// here it's just a basic intro method to update the UI with the washer's name.
+    // We shall make it fancier someday.
     private void updateUI() {
         Intent i = getIntent();
         String nameUpdate = i.getStringExtra("NAME_KEY");
@@ -89,6 +88,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         }
     }
 
+    //we update the upper box according to whatever task the washer has requested to claim.
     private void updateUpperBox(int i) {
     Task t = taskList.get(i - 1);
         runOnUiThread(() -> {
@@ -101,6 +101,7 @@ public class WasherHomeActivity extends AppCompatActivity implements INotify3Tas
         });
     }
 
+    //callback with a list of tasks so we can show the washer some available requests in the area he is at
     public void notifyTasksResult(List<Task> taskList) {
         this.taskList = taskList;
         int size = taskList.size();

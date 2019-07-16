@@ -1,8 +1,5 @@
 package com.example.washsauce_dev;
 
-import android.app.Activity;
-import android.content.Intent;
-
 import android.os.AsyncTask;
 
 /***

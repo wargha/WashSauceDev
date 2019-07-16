@@ -71,6 +71,10 @@ public class SignUpActivity extends AppCompatActivity {
                });
     }
 
+    //Let's try signing up with whatever the info the user provided.
+    // because this method is only used here and only here, we will handle all
+    //database calls without a controller class, but probably in a real world
+    // application we would change that!
     public void trySignUp(View view) {
         String emailDB = email.getText().toString().toLowerCase();
         String passwordDB = pw.getText().toString();
@@ -97,6 +101,8 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
+    //Go to the sign in page! It only gets called with the user provided some valid
+    //data to the sign up activity. random passwords or imcomplete emails will fail badly :(
     public void goToSignIn() {
         Intent i = new Intent(this, IntroActivity.class);
         startActivity(i);

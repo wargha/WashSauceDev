@@ -1,6 +1,5 @@
 package com.example.washsauce_dev;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -25,7 +24,6 @@ import android.widget.EditText;
 public class IntroActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editPw;
-
     private Button buttonConfirm;
 
     @Override
@@ -38,9 +36,7 @@ public class IntroActivity extends AppCompatActivity {
 
         editName.addTextChangedListener(loginTextWatcher);
         editPw.addTextChangedListener(loginTextWatcher);
-
-
-         buttonConfirm.setEnabled(false);
+        buttonConfirm.setEnabled(false);
 
     }
 
@@ -49,6 +45,8 @@ public class IntroActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    //To start off, we need to authenticate the user when the log in button is pressed. Let's make sure
+    //we got some real log in coming in!
     public void authenticateUser(View v) {
         String email = editName.getText().toString().toLowerCase();
         String password = editPw.getText().toString();
@@ -60,6 +58,7 @@ public class IntroActivity extends AppCompatActivity {
         a.trySignIn();
     }
 
+    // if there is a real user in, this method will be able to be called.
     public void startSignUpActivity (View view) {
         Intent i = new Intent(this, SignUpActivity.class);
         startActivity(i);

@@ -82,6 +82,8 @@ public class RequestTaskActivity extends AppCompatActivity {
     }
 
 
+    //This method is used to make sure all data is valid by the user and then submit a solid nice sweet
+    //request so a happy user can have his wash done.
     public void submitCustomerRequest(View v) {
 
         String checkLoads = loads.getText().toString().trim();
@@ -114,16 +116,10 @@ public class RequestTaskActivity extends AppCompatActivity {
             String condition = iNormalDirty ? "Normal" : iMuddy ? "Muddy" : iStained ? "Stained" : "";
             java.util.Date date = new java.util.Date();
 
+            // Send user input to the database
             Task t = new Task(date.toString(), iNotes, loadSize, this.requestorEmail, iLoads, condition, type);
             DataBaseWriter writeTask = new DataBaseWriter(this);
             writeTask.addNewTask(t);}
-
-        // Use boolean to turn on submit button if all required areas are filled in
-
-
-        // Send user input to the database
-
-
     }
 
 

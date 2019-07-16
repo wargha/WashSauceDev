@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.Map;
 
 /***
- * This activity allows the application to read from the database where ever
- * and when ever needed.
+ * This class provides the necessary methods so the application can read from the database wherever
+ * and whenever needed.
  */
 
 public class DataBaseReader {
@@ -32,14 +32,19 @@ public class DataBaseReader {
     INotifyTaskReceived taskReceived;
     INotify3TasksReceived tasksReceived;
     INotifyHistory taskHistoryReceived;
+
+    // In here we have one constructor only. It takes an activity and sets all the later
+    //properties, which happen all to be observer interfaces to null.
     public DataBaseReader(Activity activity) {
         this.activity = activity;
         this.userReceived = null;
         this.taskReceived = null;
         this.tasksReceived = null;
-        taskHistoryReceived = null;
+        this.taskHistoryReceived = null;
     }
 
+    // In this block we will have the setters for the observer interfaces
+    // that will allow us to provide functional callbacks
     public void setUserReceived(INotifyUserReceived userReceived) {
         this.userReceived = userReceived;
     }
@@ -56,6 +61,8 @@ public class DataBaseReader {
         this.taskHistoryReceived = taskHistoryReceived;
     }
 
+    //Read user by id, though we don't yet use this feature now, it will be used later
+    // as the project gets bigger
     public void readUser(String id) {
     db.collection("users").document(id).get()
             .addOnSuccessListener(documentSnapshot -> {
@@ -71,6 +78,8 @@ public class DataBaseReader {
             });
     }
 
+    //with an email provided by the user, let's use it and in the third call back (on success listener) we will
+    // call the interface created to observe that response and then update the UI in any activity.
     public void readUserByEmail(String email) {
         db.collection("users")
                 .whereEqualTo("email", email)
@@ -102,6 +111,8 @@ public class DataBaseReader {
                 });
     }
 
+    //Same as the last one, but now we read tasks in the database using the email the user
+    //authenticated to the program with.
     public void readTaskByEmail(String email) {
         db.collection("tasks")
                 .whereEqualTo("requestorEmail", email)
@@ -128,6 +139,9 @@ public class DataBaseReader {
                 });
     }
 
+    //Our goal is in the future provide a location and look for tasks only
+    //within a certain area, but since all the work is in Rexburg for now
+    //this will do.
     public void readTasksByLocation(String location) {
         List<Task> listOfTasks = new ArrayList<Task>();
         db.collection("tasks")
@@ -151,6 +165,7 @@ public class DataBaseReader {
                 });
     }
 
+    //Let's read a list of tasks and return them to the History Activity!
     public void readTaskHistory(String email) {
         List<Task> listTasks = new ArrayList<Task>();
         db.collection("tasks")

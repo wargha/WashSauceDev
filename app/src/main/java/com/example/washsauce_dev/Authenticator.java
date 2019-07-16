@@ -30,7 +30,8 @@ public class Authenticator {
         this.email = email;
         this.password = password;
     }
-
+//This method intends to receive an email and a password and tries to connects to
+//firebase firestore authentication port.
     public void trySignIn() {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, task -> {

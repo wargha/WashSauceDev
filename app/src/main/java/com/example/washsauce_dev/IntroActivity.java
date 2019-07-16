@@ -12,6 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/***
+ * This activity is the log-in page of the app. For a new user,
+ * they can click the button to go to the sign-up activity and
+ * create a profile making a new user object for themselves. If
+ * the user is a customer or washer already, they can log-in
+ * using their log-in credentials and the database will recognize
+ * them as either a washer or user, and from there send them to
+ * the respective homepage so they can start using the app from there.
+ */
+
 public class IntroActivity extends AppCompatActivity {
     private EditText editName;
     private EditText editPw;

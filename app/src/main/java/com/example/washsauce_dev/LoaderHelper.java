@@ -5,6 +5,10 @@ import android.content.Intent;
 
 import android.os.AsyncTask;
 
+/***
+ * This activity initiates the start-up of WashSauce acting as a screen intro.
+ */
+
 public class LoaderHelper extends AsyncTask<Void, Void, Void> {
     MainActivity activity;
     LoaderHelper(MainActivity activity) {

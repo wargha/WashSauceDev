@@ -1,20 +1,8 @@
 package com.example.washsauce_dev;
 
-/***
- * This activity is the log-in page of the app. For a new user,
- * they can click the button to go to the sign-up activity and
- * create a profile making a new user object for themselves. If
- * the user is a customer or washer already, they can log-in
- * using their log-in credentials and the database will recognize
- * them as either a washer or user, and from there send them to
- * the respective homepage so they can start using the app from there.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,17 +31,12 @@ public class IntroActivity extends AppCompatActivity {
 
 
          buttonConfirm.setEnabled(false);
-        //buttonConfirm.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
     }
 
     protected void onStop() {
         // call the superclass method first
         super.onStop();
-
-//        SharedPreferences.Editor editor = sharedPref.edit();
-//        editor.putBoolean("authRef", true);
-//        editor.commit();
     }
 
     public void authenticateUser(View v) {
@@ -69,11 +52,6 @@ public class IntroActivity extends AppCompatActivity {
 
     public void startSignUpActivity (View view) {
         Intent i = new Intent(this, SignUpActivity.class);
-        startActivity(i);
-    }
-
-    public void  startWasherHome(View view) {
-        Intent i = new Intent(this, WasherHomeActivity.class);
         startActivity(i);
     }
 

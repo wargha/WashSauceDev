@@ -43,17 +43,7 @@ public class DataBaseWriter {
                         Intent i = new Intent(this.activity, UserHomeActivity.class);
                         activity.startActivity(i);
                 })
-//                     Intent i = new Intent(activity, UserHomeActivity.class);
                 .addOnFailureListener(e -> Log.w("RequestTaskActivity", "Error adding document", e));
     }
 
-//    public void updateUser() {
-//        Map<String, Object> data = new HashMap<>();
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-//        String userID = preferences.getString("USER_ID_KEY", "");
-//        db.collection("users").document(userID)
-//                .update("servicesRequested",++)
-//                .addOnSuccessListener(documentReference -> Log.w(TAG, "Document added with success!"))
-//                .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-//    }
 }

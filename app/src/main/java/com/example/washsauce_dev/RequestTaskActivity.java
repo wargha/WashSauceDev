@@ -1,21 +1,16 @@
 package com.example.washsauce_dev;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.BoringLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-/***********************************
+/**
  * This activity is an additional function connected to the customer homepage.
  * The customer is able to fill out the form in this activity to request
  * a wash, that data is then sent to the database and pulled for the washer

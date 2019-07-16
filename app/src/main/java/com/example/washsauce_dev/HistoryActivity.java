@@ -1,15 +1,10 @@
 package com.example.washsauce_dev;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /***
@@ -33,13 +28,8 @@ public class HistoryActivity extends AppCompatActivity implements INotifyHistory
         this.count = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-
         Intent i = getIntent();
         String userEmail = i.getStringExtra("EMAIL_KEY");
-
-        // uncomment the following two lines to test what is the email
-        //Toast.makeText(this, userEmail,
-        //        Toast.LENGTH_LONG).show();
 
         readTaskList(userEmail);
 
@@ -72,7 +62,6 @@ public class HistoryActivity extends AppCompatActivity implements INotifyHistory
     public void goToNext(View view) {
             this.count ++;
             updateUI();
-
     }
 
     public void updateUI() {

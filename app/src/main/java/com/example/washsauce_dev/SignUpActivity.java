@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnCompleteListener(SignUpActivity.this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText(SignUpActivity.this, "It worked!",
+                        Toast.makeText(SignUpActivity.this, "User Created Successfully!",
                                 Toast.LENGTH_SHORT).show();
                         writeUser.addNewUser(u);
                         goToSignIn();

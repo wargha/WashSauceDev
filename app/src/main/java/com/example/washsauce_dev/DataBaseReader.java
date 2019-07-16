@@ -163,8 +163,10 @@ public class DataBaseReader {
                         Toast.makeText(activity, "Found " + task.getResult().size() + " tasks in the database...",
                                 Toast.LENGTH_SHORT).show();
 
-
-                        //This will go through each task
+                        /*
+                        This will go through each task in the database and add to a task list that will later
+                        be returned
+                        */
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.d(TAG, document.getId() + " => " + document.getData());
                             listTasks.add(document.toObject(Task.class));
